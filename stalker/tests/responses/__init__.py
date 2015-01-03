@@ -1,5 +1,5 @@
 import os
-from scrapy.http import Response, Request
+from scrapy.http import HtmlResponse, Request
 
 
 def fake_response_from_file(file_name, url=None):
@@ -15,10 +15,9 @@ def fake_response_from_file(file_name, url=None):
 
     request = Request(url=url)
     current_dir = os.path.dirname(os.path.dirname(__file__))
-    data_dir = os.path.normpath(os.path.join(current_dir, "../data"))
+    data_dir = os.path.normpath(os.path.join(current_dir, "data"))
     file_path = os.path.join(data_dir, file_name)
-    with open(file_name, 'r') as f:
+    with open(file_path, 'r') as f:
         file_content = f.read()
-        response = Response(url=url, request=request, body=file_content)
-        response.encoding = 'utf-8'
+        response = HtmlResponse(url=url, request=request, body=file_content, encoding='utf-8')
         return response

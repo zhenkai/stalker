@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from django.utils import timezone
-import mmh3
 from scrapy import Selector
 from scrapy.contrib.spiders import CrawlSpider, Rule
 from scrapy.contrib.linkextractors import LinkExtractor
@@ -16,26 +14,24 @@ class GrabagunSpider(CrawlSpider):
     )
 
     rules = (
-        Rule(LinkExtractor(allow=(r"http://grabagun.com/[firearms|accessories|magazines|scopes-optics|holsters|tactical-gear|gun-parts-for-sale]",),
+        Rule(LinkExtractor(allow=(r"http://grabagun.com/(firearms|accessories|magazines|scopes-optics|holsters|tactical-gear|gun-parts-for-sale)",),
                            restrict_xpaths="//a[span]")),
         Rule(LinkExtractor(restrict_xpaths='//a[@class="next i-next"]')),
-        Rule(LinkExtractor(allow=(r"http://grabagun.com/.+\.html",), restrict_xpaths='//ol[@class="products-list"/li[@class="item"', callback='parse_item'))
+        Rule(LinkExtractor(allow=(r"http://grabagun.com/.+\.html",), restrict_xpaths='//ol[@class="products-list"/li[@class="item"'), callback='parse_item')
     )
 
     def parse_item(self, response):
-        url = normalize(response.url)
-        pid = mmh3.hash(url)
+        item = ProductItem()
+        item['url'] = normalize(response.url)
         sel = Selector(response)
-        img = sel.xpath('//meta[@property="og:image"]/@content').extract()
-        in_stock = sel.xpath('//p[@class="availability in-stock"]/*/text()').extract()
-        if "In stock" == in_stock:
-            price = sel.xpath('//div[@class="price-box"]/span/span[@class="price"]/text()').extract()
+        item['img'] = sel.xpath('//meta[@property="og:image"]/@content').extract()
+        in_stock = sel.xpath('//p[@class="availability in-stock"]/span/text()').extract()
+        if "In stock" in in_stock:
+            item['price'] = sel.xpath('//div[@class="price-box"]/span/span[@class="price"]/text()').extract()
         else:
-            price = -999
-        headline = sel.xpath('//meta[@property="og:title"]/@content').extract()
-        desc = sel.xpath('//meta[@name="description]/@content').extract()
-        vendor = self.name
-        last_modified = timezone.now()
+            item['price'] = ["$-999"]
+        item['headline'] = sel.xpath('//meta[@property="og:title"]/@content').extract()
+        item['desc'] = sel.xpath('//meta[@name="description"]/@content').extract()
+        item['vendor'] = self.name
 
-        return ProductItem(pid=pid, url=url, img=img, headline=headline, desc=desc, vendor=vendor, price=price, last_modified=last_modified)
-
+        return item

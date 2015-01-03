@@ -4,11 +4,12 @@
 #
 # See documentation in:
 # http://doc.scrapy.org/en/latest/topics/items.html
+import scrapy
 
-from scrapy.contrib.djangoitem import DjangoItem
-
-from gunmel.models import Product
-
-
-class ProductItem(DjangoItem):
-    django_model = Product
+class ProductItem(scrapy.Item):
+    headline = scrapy.Field()
+    img = scrapy.Field()
+    desc = scrapy.Field()
+    price = scrapy.Field()
+    url = scrapy.Field()
+    vendor = scrapy.Field()

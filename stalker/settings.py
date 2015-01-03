@@ -18,12 +18,6 @@ NEWSPIDER_MODULE = 'stalker.spiders'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'stalker (+http://www.yourdomain.com)'
 
-# integration with django
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-DJANGO_SITE_DIR = os.path.normpath(os.path.join(BASE_DIR, '../xgunicorn'))
-sys.path.append(DJANGO_SITE_DIR)
-os.environ['DJANGO_SETTINGS_MODULE'] = 'xgunicorn.settings'
-
 ITEM_PIPELINES = {
     'stalker.pipelines.StalkerPipeline': 1000
 }
