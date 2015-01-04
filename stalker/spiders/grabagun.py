@@ -33,7 +33,15 @@ class GrabagunSpider(CrawlSpider):
             item['oos'] = False
         else:
             item['oos'] = True
-        item['price'] = locale.atof(sel.xpath('//div[@class="price-block"]/div[@class="price-box"]/span/span[@class="price"]/text()').re(r"((\d+,)*\d+\.\d+)")[0])
+
+        has_sale = sel.xpath('//div[@class="price-block"]/div[starts-with(@class,"price-box")]//a/text()').re("[Cc]lick for [pP]rice")
+        if len(has_sale) > 0:
+            sale_price = sel.xpath('//div[@class="price-block"]/div[starts-with(@class,"price-box")]//script/text()').re(r"\$((\d+,)*\d+\.\d+)")
+            item['price'] = locale.atof(sale_price[0])
+        else:
+            regular_price = sel.xpath('//div[@class="price-block"]/div[starts-with(@class,"price-box")]/span/span[@class="price"]/text()').re(r"((\d+,)*\d+\.\d+)")
+            item['price'] = locale.atof(regular_price[0])
+
         item['headline'] = sel.xpath('//meta[@property="og:title"]/@content').extract()[0]
         item['desc'] = sel.xpath('//meta[@name="description"]/@content').extract()[0]
         item['vendor'] = self.name

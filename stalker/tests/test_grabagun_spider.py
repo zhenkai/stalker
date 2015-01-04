@@ -28,5 +28,11 @@ class GrabagunSpiderTestCase(unittest.TestCase):
         self.assertTrue(item['oos'])
         self.assertAlmostEqual(item['price'], 429.00)
 
+    def test_parse_item_sale(self):
+        fake_response = fake_response_from_file(file_name="grabagun_click_for_price.html", url="http://grabagun.com/beretta-nano-9mm-3-07-6rd-blk-3dot.html")
+        item = self.spider.parse_item(fake_response)
+        self.assertFalse(item['oos'])
+        self.assertAlmostEqual(item['price'], 372.73)
+
 if __name__ == '__main__':
     unittest.main()
