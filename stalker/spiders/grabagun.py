@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import locale
+import time
 from scrapy import Selector
 from scrapy.contrib.spiders import CrawlSpider, Rule
 from scrapy.contrib.linkextractors import LinkExtractor
@@ -45,5 +46,5 @@ class GrabagunSpider(CrawlSpider):
         item['headline'] = sel.xpath('//meta[@property="og:title"]/@content').extract()[0]
         item['desc'] = sel.xpath('//meta[@name="description"]/@content').extract()[0]
         item['vendor'] = self.name
-
+        item['timestamp'] = int(time.time())
         return item

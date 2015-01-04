@@ -14,3 +14,4 @@ class ProductItem(scrapy.Item):
     url = scrapy.Field()
     vendor = scrapy.Field()
     oos = scrapy.Field()
+    timestamp = scrapy.Field()

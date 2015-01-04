@@ -18,7 +18,7 @@ class JsonLinePipeline(object):
         dispatcher.connect(self.spider_closed, signals.spider_closed)
 
     def spider_opened(self, spider):
-        f = open('/tmp/%s_%s_products.json' % (spider.name, time.time()), 'w+b')
+        f = open('/Users/zhenkai/Develop/site/xgunicorn-site/data/%s_%s_products.json' % (spider.name, int(time.time())), 'w+b')
         self.files[spider] = f
         self.exporter = JsonLinesItemExporter(f)
         self.exporter.start_exporting()
