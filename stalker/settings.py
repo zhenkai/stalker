@@ -7,17 +7,21 @@
 #
 #     http://doc.scrapy.org/en/latest/topics/settings.html
 #
-import sys
-import os
+from scrapy import log
 
 BOT_NAME = 'stalker'
 
 SPIDER_MODULES = ['stalker.spiders']
 NEWSPIDER_MODULE = 'stalker.spiders'
 
+CONCURRENT_REQUESTS = 32
+CONCURRENT_REQUESTS_PER_DOMAIN = 8
+
+LOG_LEVEL = log.INFO
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'stalker (+http://www.yourdomain.com)'
+USER_AGENT = 'stalker (+http://www.stalker.com)'
 
 ITEM_PIPELINES = {
-    'stalker.pipelines.StalkerPipeline': 1000
+    'stalker.pipelines.JsonLinePipeline': 1000
 }
