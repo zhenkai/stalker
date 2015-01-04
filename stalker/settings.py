@@ -19,6 +19,8 @@ CONCURRENT_REQUESTS_PER_DOMAIN = 8
 
 LOG_LEVEL = log.INFO
 
+JSON_OUTPUT_DIR = '/tmp'
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'stalker (+http://www.stalker.com)'
 
