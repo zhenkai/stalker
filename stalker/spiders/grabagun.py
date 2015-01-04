@@ -18,8 +18,7 @@ class GrabagunSpider(CrawlSpider):
     )
 
     rules = (
-        #Rule(LinkExtractor(allow=(r"http://grabagun.com/(firearms|sale-items|accessories|magazines|scopes-optics|holsters|tactical-gear|gun-parts-for-sale)",),
-        Rule(LinkExtractor(allow=(r"http://grabagun.com/sale-items",),
+        Rule(LinkExtractor(allow=(r"http://grabagun.com/(firearms|sale-items|accessories|magazines|scopes-optics|holsters|tactical-gear|gun-parts-for-sale)",),
                            restrict_xpaths='//div[@class="nav-container"]//a[span]')),
         Rule(LinkExtractor(restrict_xpaths='//a[@class="next i-next"]')),
         Rule(LinkExtractor(allow=(r".*html",), restrict_xpaths='//h2[@class="product-name"]/a'), callback='parse_item')

@@ -22,6 +22,9 @@ CONCURRENT_REQUESTS_PER_DOMAIN = 8
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'stalker (+http://www.stalker.com)'
 
+LOG_LEVEL = log.INFO
+LOG_FILE = "/usr/local/var/log/stalker.log"
+
 ITEM_PIPELINES = {
     'stalker.pipelines.StalkerPipeline': 1000
 }
@@ -33,5 +36,6 @@ sys.path.insert(0, '/Users/zhenkai/Develop/site/xgunicorn-site/xgunicorn')
 # This module is located at /home/rolando/projects/myweb/myweb/settings.py.
 os.environ['DJANGO_SETTINGS_MODULE'] = 'xgunicorn.settings'
 
+# this is required or else it would say model not ready etc.
 import django
 django.setup()
