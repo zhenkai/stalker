@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 import locale
-import time
+import mmh3
 from scrapy import Selector
 from scrapy.contrib.spiders import CrawlSpider, Rule
 from scrapy.contrib.linkextractors import LinkExtractor
 from urltools import normalize
 from stalker.items import ProductItem
+from django.utils import timezone
 
 locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 
@@ -27,6 +28,7 @@ class GrabagunSpider(CrawlSpider):
     def parse_item(self, response):
         item = ProductItem()
         item['url'] = normalize(response.url)
+        item['pid'] = mmh3.hash(item['url'])
         sel = Selector(response)
         item['img'] = sel.xpath('//meta[@property="og:image"]/@content').extract()[0]
         in_stock = sel.xpath('//p[@class="availability in-stock"]/span/text()').extract()
@@ -46,5 +48,5 @@ class GrabagunSpider(CrawlSpider):
         item['headline'] = sel.xpath('//meta[@property="og:title"]/@content').extract()[0]
         item['desc'] = sel.xpath('//meta[@name="description"]/@content').extract()[0]
         item['vendor'] = self.name
-        item['timestamp'] = int(time.time())
+        item['last_modified'] = timezone.now()
         return item
