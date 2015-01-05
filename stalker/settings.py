@@ -16,8 +16,8 @@ BOT_NAME = 'stalker'
 SPIDER_MODULES = ['stalker.spiders']
 NEWSPIDER_MODULE = 'stalker.spiders'
 
-CONCURRENT_REQUESTS = 32
-CONCURRENT_REQUESTS_PER_DOMAIN = 8
+CONCURRENT_REQUESTS = 64
+CONCURRENT_REQUESTS_PER_DOMAIN = 32
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = 'stalker (+http://www.stalker.com)'
