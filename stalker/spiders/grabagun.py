@@ -3,7 +3,6 @@ import locale
 import mmh3
 from scrapy.contrib.spiders import CrawlSpider, Rule
 from scrapy.contrib.linkextractors import LinkExtractor
-from scrapy.selector import Selector
 from urltools import normalize
 from stalker.items import ProductItem
 from django.utils import timezone
@@ -23,7 +22,8 @@ class GrabagunSpider(CrawlSpider):
 
     rules = (
         Rule(LinkExtractor(allow=(r"http://grabagun.com/(firearms|sale-items|accessories|magazines|scopes-optics|holsters|tactical-gear|gun-parts-for-sale)",),
-                           restrict_xpaths='//div[@class="nav-container"]//a[span]'), callback='parse_item', follow=True),
+                           restrict_xpaths='//div[@class="nav-container"]//a[span]',
+                           process_value=lambda url: "%s?limit=100" % url), callback='parse_item', follow=True),
         Rule(LinkExtractor(restrict_xpaths='//a[@class="next i-next"]'), callback='parse_item', follow=True),
     )
 
