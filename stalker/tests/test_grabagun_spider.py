@@ -32,6 +32,26 @@ class GrabagunSpiderTestCase(unittest.TestCase):
         p18 = items[18]
         self.assertAlmostEqual(p18['price'], 551.91)
 
+    def test_parse_item_oos(self):
+        fake_response = fake_response_from_file(file_name="grabagun_oos_list.html")
+        items = []
+        for item in self.spider.parse_item(fake_response):
+            items.append(item)
+
+        self.assertEquals(len(items), 20)
+
+        p1 = items[1]
+        self.assertAlmostEqual(p1['price'], 501.11)
+        self.assertEquals(p1['headline'], u'Walther PPS Pistol 9mm 3.2-inch Black 7rd')
+        self.assertFalse(p1['oos'])
+        self.assertEquals(p1['url'], u'http://grabagun.com/walther-pps-qa-9mm-3-2-bl-1-7rd.html')
+
+        p7 = items[7]
+        self.assertAlmostEqual(p7['price'], 852.95)
+        self.assertEquals(p7['headline'], u'Arsenal KRINK Pistol 5.56 NATO 10.5-inch 5rd')
+        self.assertEquals(p7['url'], u'http://grabagun.com/arsenal-inc-krink-pstl-556nato-10-5-5rd.html')
+        self.assertTrue(p7['oos'])
+
 
 if __name__ == '__main__':
     unittest.main()

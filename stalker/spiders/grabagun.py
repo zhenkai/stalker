@@ -36,9 +36,9 @@ class GrabagunSpider(CrawlSpider):
     def _parse_single_item(self, sel):
         item = ProductItem()
 
-        item['url'] = normalize(sel.xpath('a[@title="Product image"]/@href').extract()[0])
+        item['url'] = normalize(sel.xpath('a[@class="product-image"]/@href').extract()[0])
         item['pid'] = mmh3.hash(item['url'])
-        item['img'] = sel.xpath('a/img[@alt="Product image"]/@src').extract()[0]
+        item['img'] = sel.xpath('a[@class="product-image"]/img[@alt]/@src').extract()[0]
         oos = sel.xpath('.//p[@class="availability out-of-stock"]/span/text()').extract()
         if "Out of stock" in oos:
             item['oos'] = True
@@ -49,7 +49,6 @@ class GrabagunSpider(CrawlSpider):
         if len(has_sale) > 0:
             sale_price = sel.xpath('.//div[starts-with(@class,"price-box")]//script/text()').re(r"\$((\d+,)*\d+\.\d+)")
             item['price'] = locale.atof(sale_price[0])
-            print item['price']
         else:
             regular_price = sel.xpath('.//div[starts-with(@class,"price-box")]/span/span[@class="price"]/text()').re(r"((\d+,)*\d+\.\d+)")
             item['price'] = locale.atof(regular_price[0])

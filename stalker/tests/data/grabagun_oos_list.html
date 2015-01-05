@@ -1,0 +1,3212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UA4FWF9QGwACUVRTAwU="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),u=c.length,f=i(a,o,r),d=0;u>d;d++)c[d].apply(f,n);return f}function a(t,e){u[t]=s(t).concat(e)}function s(t){return u[t]||[]}function c(){return n(e)}var u={};return{on:a,emit:e,create:c,listeners:s,_events:u}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(u){try{r("ierr",[u,(new Date).getTime(),!0])}catch(f){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(4),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,window.onerror=e,NREUM.noticeError=n;try{throw new Error}catch(u){"stack"in u&&(t(5),t(3),"addEventListener"in window&&t(1),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&t(2),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:4,2:7,3:5,4:18,5:6,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],4:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:18,2:19,ee:"QJf3ax",gos:"7eSDFh"}],5:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:19,2:18,ee:"QJf3ax"}],6:[function(t,e){function n(t,e,n){var r=t[0];"string"==typeof r&&(r=new Function(r)),t[0]=o(r,"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:19,2:18,ee:"QJf3ax"}],7:[function(t,e){function n(){c.inPlace(this,d,"fn-")}function r(t,e){c.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}var i=t("ee").create(),a=t(1),s=t(2),c=s(i),u=s(a),f=window.XMLHttpRequest,d=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=i,window.XMLHttpRequest=function(t){var e=new f(t);try{i.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",function(t,e){return e}),e.addEventListener("readystatechange",n,!1)}catch(r){try{i.emit("internal-error",[r])}catch(o){}}return e},window.XMLHttpRequest.prototype=f.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),i.on("send-xhr-start",r),i.on("open-xhr-start",r)},{1:4,2:19,ee:"QJf3ax"}],8:[function(t){function e(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function n(t){var n=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!n.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){n.status=t.status;var a=t.responseType,u="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,f=e(u);if(f&&(r.rxSize=f),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(n.cat=d.split(", ").pop())}}else n.status=0;r.cbTime=this.cbTime,o("xhr",[n,r,this.startTime])}}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,u=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=n,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,n){var r=this.metrics,o=t[0],i=this;if(r&&o){var u=e(o);u&&(r.txSize=u)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof n.onload))&&i.end(n)}catch(e){try{a.emit("internal-error",[e])}catch(r){}}};for(var f=0;c>f;f++)n.addEventListener(s[f],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+u(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:9,3:7,4:4,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],9:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],G9z0Bl:[function(t,e){function n(){var t=p.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&c&&c.body){p.proto="https"===d.split(":")[0]||t.sslForHttp?"https://":"http://",a("mark",["onload",i()]);var e=c.createElement("script");e.src=p.proto+t.agent,c.body.appendChild(e)}}function r(){"complete"===c.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=window,c=s.document,u="addEventListener",f="attachEvent",d=(""+location).split("?")[0],p=e.exports={offset:i(),origin:d,features:{}};c[u]?(c[u]("DOMContentLoaded",o,!1),s[u]("load",n,!1)):(c[f]("onreadystatechange",r),s[f]("onload",n)),a("mark",["firstbyte",i()])},{handle:"D5DuLP"}],18:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],19:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,u;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){f([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return u=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,u],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,u(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,u="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,u?s+o:o,i,s,t))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){f([o,e,n,r])}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){f([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function f(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:18,ee:"QJf3ax"}]},{},["G9z0Bl",3,8]);</script>
+<title>Clearance Firearms | Grab A Gun Online Gun Store</title>
+<meta property="og:title" content="Clearance Firearms | Grab A Gun Online Gun Store" />
+<meta property="og:type" content="product" />
+<meta property="og:site_name" content="GrabAGun.com"/>
+<meta property="og:description" content="We have a number of sale items that are priced at deep discounts. Come pick up a selection of great sale items from Grab A Gun today!
+" />
+<meta name="description" content="We have a number of sale items that are priced at deep discounts. Come pick up a selection of great sale items from Grab A Gun today!
+" />
+<meta name="keywords" content=" " />
+<meta name="robots" content="INDEX,FOLLOW" />
+<link rel="icon" href="http://grabagun.com/media/favicon/default/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="http://grabagun.com/media/favicon/default/favicon.ico" type="image/x-icon" />
+<!--[if lt IE 7]>
+<script type="text/javascript">
+//<![CDATA[
+    var BLANK_URL = 'http://grabagun.com/js/blank.html';
+    var BLANK_IMG = 'http://grabagun.com/js/spacer.gif';
+//]]>
+</script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="http://grabagun.com/skin/frontend/default/GrabAGun/css/styles.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://grabagun.com/skin/frontend/base/default/css/widgets.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://grabagun.com/skin/frontend/default/GrabAGun/css/grabagun.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://grabagun.com/skin/frontend/base/default/css/salesperson/AutoComplete.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://grabagun.com/skin/frontend/base/default/css/qquoteadv.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://grabagun.com/skin/frontend/base/default/css/customerparadigm-popcart.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://grabagun.com/skin/frontend/default/default/css/easybanner.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://grabagun.com/skin/frontend/default/default/css/print.css" media="print" />
+<script type="text/javascript" src="http://grabagun.com/js/prototype/prototype.js"></script>
+<script type="text/javascript" src="http://grabagun.com/js/lib/ccard.js"></script>
+<script type="text/javascript" src="http://grabagun.com/js/prototype/validation.js"></script>
+<script type="text/javascript" src="http://grabagun.com/js/scriptaculous/builder.js"></script>
+<script type="text/javascript" src="http://grabagun.com/js/scriptaculous/effects.js"></script>
+<script type="text/javascript" src="http://grabagun.com/js/scriptaculous/dragdrop.js"></script>
+<script type="text/javascript" src="http://grabagun.com/js/scriptaculous/controls.js"></script>
+<script type="text/javascript" src="http://grabagun.com/js/scriptaculous/slider.js"></script>
+<script type="text/javascript" src="http://grabagun.com/js/varien/js.js"></script>
+<script type="text/javascript" src="http://grabagun.com/js/varien/form.js"></script>
+<script type="text/javascript" src="http://grabagun.com/js/varien/menu.js"></script>
+<script type="text/javascript" src="http://grabagun.com/js/mage/translate.js"></script>
+<script type="text/javascript" src="http://grabagun.com/js/mage/cookies.js"></script>
+<script type="text/javascript" src="http://grabagun.com/js/aoestatic/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="http://grabagun.com/skin/frontend/default/default/js/easybanner/jquery.lightbox-0.5.js"></script>
+<script type="text/javascript" src="http://grabagun.com/skin/frontend/default/default/js/easybanner/plugins.init.js"></script>
+<script type="text/javascript" src="http://grabagun.com/skin/frontend/base/default/js/msrp.js"></script>
+<link rel="canonical" href="http://grabagun.com/sale-items.html" />
+<!--[if lt IE 8]>
+<link rel="stylesheet" type="text/css" href="http://grabagun.com/skin/frontend/default/GrabAGun/css/styles-ie.css" media="all" />
+<![endif]-->
+<!--[if lt IE 7]>
+<script type="text/javascript" src="http://grabagun.com/js/lib/ds-sleight.js"></script>
+<script type="text/javascript" src="http://grabagun.com/skin/frontend/base/default/js/ie6.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+//<![CDATA[
+optionalZipCountries = [];
+//]]>
+</script>
+<script type="text/javascript">//<![CDATA[
+        var Translator = new Translate([]);
+        //]]></script><link rel="stylesheet" type="text/css" href="http://grabagun.com/skin/frontend/default/GrabAGun/css/cp-styles.css">
+</head>
+<body itemscope itemtype="http://schema.org/Product"  class=" catalog-category-view categorypath-sale-items-html category-sale-items">
+<div id="popcart-toggle">
+    <div id="popCart-wrapper">
+        <div class="popcart-overlay"></div>
+        <div class="popCart">
+                        <div class="block-title">
+
+                            </div>
+
+            <div class="block-content">
+            <div class="warning-message">
+                    </div>
+                                        <p class="empty">You have no items in your shopping cart.</p>
+                <span id="popCartClose" title="Close" onclick="closePopCart()">X</span>
+            
+            
+                        </div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+<script type="text/javascript">
+        function showCart(){
+            window.scrollTo(0, 0);
+            document.getElementById('popcart-toggle').style.display="block";
+            // alert("<div>sesvar=</div>");
+        };
+            </script>
+
+
+
+
+<script type="text/javascript">
+    function closePopCart(){
+        document.getElementById('popcart-toggle').style.display="none";
+        jQuery('.warning-message').html('');
+        jQuery('.added-message').css('display','block');
+    }
+</script>
+</div>
+
+<style>
+    .popCart {
+        position: relative;
+        width: 650px;
+        height: auto;
+        top: 1%;
+        left: 50%;
+        margin-left: -325px;
+        padding: 25px;
+        z-index: 9999;
+        border-radius: 20px;
+        background-color: #FFFFFF;
+    }
+</style>
+<!-- STARTHeaderContainer -->
+<div class="wrapper">
+        <noscript>
+        <div class="global-site-notice noscript">
+            <div class="notice-inner">
+                <p>
+                    <strong>JavaScript seems to be disabled in your browser.</strong><br />
+                    You must have JavaScript enabled in your browser to utilize the functionality of this website.                </p>
+            </div>
+        </div>
+    </noscript>
+    <div class="page">
+        
+<script>
+	function css_browser_selector(u) {
+		var ua = u.toLowerCase(), is = function(t) {
+			return ua.indexOf(t) > -1
+		}, g = 'gecko', w = 'webkit', s = 'safari', o = 'opera', m = 'mobile', h = document.documentElement, b = [(!(/opera|webtv/i.test(ua)) && /msie\s(\d)/.test(ua)) ? ('ie ie' + RegExp.$1) : is('firefox/2') ? g + ' ff2' : is('firefox/3.5') ? g + ' ff3 ff3_5' : is('firefox/3.6') ? g + ' ff3 ff3_6' : is('firefox/3') ? g + ' ff3' : is('gecko/') ? g : is('opera') ? o + (/version\/(\d+)/.test(ua) ? ' ' + o + RegExp.$1 : (/opera(\s|\/)(\d+)/.test(ua) ? ' ' + o + RegExp.$2 : '')) : is('konqueror') ? 'konqueror' : is('blackberry') ? m + ' blackberry' : is('android') ? m + ' android' : is('chrome') ? w + ' chrome' : is('iron') ? w + ' iron' : is('applewebkit/') ? w + ' ' + s + (/version\/(\d+)/.test(ua) ? ' ' + s + RegExp.$1 : '') : is('mozilla/') ? g : '', is('j2me') ? m + ' j2me' : is('iphone') ? m + ' iphone' : is('ipod') ? m + ' ipod' : is('ipad') ? m + ' ipad' : is('mac') ? 'mac' : is('darwin') ? 'mac' : is('webtv') ? 'webtv' : is('win') ? 'win' + (is('windows nt 6.0') ? ' vista' : '') : is('freebsd') ? 'freebsd' : (is('x11') || is('linux')) ? 'linux' : '', 'js'];
+		c = b.join(' ');
+		h.className += ' ' + c;
+		return c;
+	}
+	;
+	css_browser_selector(navigator.userAgent);
+</script>
+ <!--  -->
+ 	<div class="header-container">
+				<div class="header">
+			<div class="quick-search">
+	<form id="search_mini_form" action="http://grabagun.com/salesperson/result/" method="get">
+    <div class="form-search">
+        <label for="search">Qwiser Search:</label>
+        <input id="search" type="text" autocomplete="off" name="q" value="" class="input-text" />
+        <button id="searchSubmit" type="submit" title="GO" class="button">GO</button>
+        <div id="search_autocomplete" class="search-autocomplete"></div>
+    </div>
+</form>
+				<div class="popular-searches" style="display:none;"><span class="popular">Popular:</span><a href="http://grabagun.com/catalogsearch/result/?q=ruger">Ruger</a>, <a href="http://grabagun.com/catalogsearch/result/?q=rifle+scope">rifle scope</a>, <a href="http://grabagun.com/catalogsearch/result/?q=handgun+ammo">handgun ammo</a></div>
+			</div>
+			<span id="welcome_msg" class="welcome-msg"></span>
+			<!-- NOCACHE key="header_login" -->
+			<div id="topLinks" class="placeholder" rel="top.links">
+				<ul class="links">
+					<li class="first top"><strong><a title="Ordering Guide" href="http://grabagun.com/ordering-guide">Ordering Guide</a></strong></li>
+					<li class="top"><a title="Track My Order" href="http://grabagun.com/order-status/">Track My Order</a></li>
+					<li class="top"><a title="Contact Us" href="http://grabagun.com/contacts/">Contact Us</a></li>
+					<li class="top"><a title="My Account" href="http://grabagun.com/customer/account/">My Account</a></li>
+					<li class="last top">
+
+						<a href="http://grabagun.com/customer/account/login/">Log In&nbsp;&nbsp;</a>
+
+					</li>
+								</ul>
+			</div>
+			<!-- ENDNOCACHE -->
+			<!--<span class="header-contact-info">
+				<!--a class="contact-link" title="Contact Us" href="/contacts"><strong>Contact Us</strong></a-->
+			<!--span style="font-weight:bold; color:white; font-size:10pt; margin-bottom: 3px;">Follow Grabagun.com</span><br/>
+			<a style="margin-top: 0px;" class="contact-link blog" href="/blog" title="Visit the Blog"><img src="http://grabagun.com/skin/frontend/default/GrabAGun/images/blog.png"/><span style="margin:3px;"></span></a>
+			<a style="margin-top: 0px;" class="contact-link facebook" href="http://www.facebook.com/pages/GrabAGuncom/105647922853032"><img src="http://grabagun.com/skin/frontend/default/GrabAGun/images/facebook.png"/><span style="margin:3px;"></span></a>
+			<a style="margin-top: 0px;" class="contact-link twitter" href="http://www.twitter.com/grabagun"><img src="http://grabagun.com/skin/frontend/default/GrabAGun/images/twitter.png"  /><span style="margin:3px;"></span></a>
+		</span>-->
+					<div class="logo"><strong>Gun, Ammo & Hunting Accessory Experts!</strong><a href="http://grabagun.com/" title="Gun, Ammo & Hunting Accessory Experts!" class="logo"><img src="http://grabagun.com/skin/frontend/default/GrabAGun/images/grab-a-gun-logo.png" alt="Gun, Ammo & Hunting Accessory Experts!" /></a></div>
+				<div id="topContainer" class="placeholder" rel="top.container">
+				</div>
+
+			<!--Delorum Test-->
+			<!-- NOCACHE key="top_cart" -->
+			<div id="cartTopBar" class="placeholder ph2" rel="cart_topbar">
+	<div class="top-cart">
+	<a href="#" onclick="showCart()">My Cart</a>:
+		
+		<div id="summary" class="summary">Empty</div>
+		<div id="secure-checkout" class="secure-checkout"></div>
+	
+</div>
+			</div>
+			<div id="ammo">&nbsp;</div>  
+
+			<!-- ENDNOCACHE -->
+			<!--Delorum-->
+
+			<!-- img class="imageText" src="/ig/?q=$5.99 Flat Rate Shipping on all Firearms!" / -->
+			<!-- <a href="#" class="specialOffer">Details</a> -->
+		</div>
+	</div>
+	<div id="topMenu" class="placeholder" rel="top.menu">
+	<div class="nav-container">
+    <ul id="nav">
+        <li class="level0 nav-1 level-top first parent">
+<a href="http://grabagun.com/firearms.html" class="level-top">
+<span>Firearms</span>
+</a>
+<ul class="level0">
+<li class="level1 nav-1-1 first parent">
+<a href="http://grabagun.com/firearms/handguns-for-sale.html">
+<span>Handguns</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-1-1-1 first">
+<a href="http://grabagun.com/firearms/handguns-for-sale/semi-automatic-handguns-for-sale.html">
+<span>Semi-Automatic Handguns</span>
+</a>
+</li><li class="level2 nav-1-1-2">
+<a href="http://grabagun.com/firearms/handguns-for-sale/revolvers-for-sale.html">
+<span>Revolvers</span>
+</a>
+</li><li class="level2 nav-1-1-3">
+<a href="http://grabagun.com/firearms/handguns-for-sale/derringer.html">
+<span>Derringers</span>
+</a>
+</li><li class="level2 nav-1-1-4 last">
+<a href="http://grabagun.com/firearms/handguns-for-sale/ar-frames-for-sale.html">
+<span>Frames</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-1-2 parent">
+<a href="http://grabagun.com/firearms/ar-15-ar10-and-other-ar.html">
+<span>AR-15 | AR-10 | AR's | AK's</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-1-2-5 first">
+<a href="http://grabagun.com/firearms/ar-15-ar10-and-other-ar/complete-ar-rifles.html">
+<span>Complete AR &amp; AK Rifles</span>
+</a>
+</li><li class="level2 nav-1-2-6">
+<a href="http://grabagun.com/firearms/ar-15-ar10-and-other-ar/ar-uppers.html">
+<span>AR Uppers</span>
+</a>
+</li><li class="level2 nav-1-2-7 last">
+<a href="http://grabagun.com/firearms/ar-15-ar10-and-other-ar/ar-lowers.html">
+<span>AR Lowers</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-1-3 parent">
+<a href="http://grabagun.com/firearms/rifles-for-sale.html">
+<span>Rifles</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-1-3-8 first">
+<a href="http://grabagun.com/firearms/rifles-for-sale/semi-automatic-rifles-for-sale.html">
+<span>Semi-Automatic Rifles</span>
+</a>
+</li><li class="level2 nav-1-3-9">
+<a href="http://grabagun.com/firearms/rifles-for-sale/bolt-action-rifles-for-sale.html">
+<span>Bolt Action Rifles</span>
+</a>
+</li><li class="level2 nav-1-3-10">
+<a href="http://grabagun.com/firearms/rifles-for-sale/lever-action-rifles.html">
+<span>Lever Action Rifles</span>
+</a>
+</li><li class="level2 nav-1-3-11">
+<a href="http://grabagun.com/firearms/rifles-for-sale/revolving-cylinder-rifle.html">
+<span>Revolving Cylinder Rifles</span>
+</a>
+</li><li class="level2 nav-1-3-12 last">
+<a href="http://grabagun.com/firearms/rifles-for-sale/single-shot-rifles.html">
+<span>Single Shot Rifles</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-1-4 parent">
+<a href="http://grabagun.com/firearms/shotguns-for-sale-online.html">
+<span>Shotguns</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-1-4-13 first">
+<a href="http://grabagun.com/firearms/shotguns-for-sale-online/semi-automatic-shotguns-for-sale.html">
+<span>Semi-Automatic Shotguns</span>
+</a>
+</li><li class="level2 nav-1-4-14">
+<a href="http://grabagun.com/firearms/shotguns-for-sale-online/over-under.html">
+<span>Over-Under Shotguns</span>
+</a>
+</li><li class="level2 nav-1-4-15">
+<a href="http://grabagun.com/firearms/shotguns-for-sale-online/pump.html">
+<span>Pump Action Tactical Shotguns</span>
+</a>
+</li><li class="level2 nav-1-4-16">
+<a href="http://grabagun.com/firearms/shotguns-for-sale-online/bolt-action-shotgun.html">
+<span>Bolt Action Shotguns</span>
+</a>
+</li><li class="level2 nav-1-4-17">
+<a href="http://grabagun.com/firearms/shotguns-for-sale-online/side-by-side-shotgun.html">
+<span>Side By Side Shotguns</span>
+</a>
+</li><li class="level2 nav-1-4-18">
+<a href="http://grabagun.com/firearms/shotguns-for-sale-online/revolving-cylinder-shotguns.html">
+<span>Revolving Cylinder Shotguns</span>
+</a>
+</li><li class="level2 nav-1-4-19">
+<a href="http://grabagun.com/firearms/shotguns-for-sale-online/single-shot-shotguns.html">
+<span>Single Shot Shotguns</span>
+</a>
+</li><li class="level2 nav-1-4-20 last">
+<a href="http://grabagun.com/firearms/shotguns-for-sale-online/lever-action-shotguns.html">
+<span>Lever Action Shotguns</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-1-5">
+<a href="http://grabagun.com/firearms/used.html">
+<span>Used Guns</span>
+</a>
+</li><li class="level1 nav-1-6">
+<a href="http://grabagun.com/firearms/youth.html">
+<span>Youth Firearms</span>
+</a>
+</li><li class="level1 nav-1-7 parent">
+<a href="http://grabagun.com/firearms/airguns.html">
+<span>Airguns</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-1-7-21 first">
+<a href="http://grabagun.com/firearms/airguns/air-gun-pistols.html">
+<span>Air Gun Pistols</span>
+</a>
+</li><li class="level2 nav-1-7-22">
+<a href="http://grabagun.com/firearms/airguns/air-gun-rifles.html">
+<span>Air Gun Rifles</span>
+</a>
+</li><li class="level2 nav-1-7-23">
+<a href="http://grabagun.com/firearms/airguns/airsoft-guns.html">
+<span>Airsoft Guns</span>
+</a>
+</li><li class="level2 nav-1-7-24 last">
+<a href="http://grabagun.com/firearms/airguns/airsoft-rifles.html">
+<span>Airsoft Rifles</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-1-8 last">
+<a href="http://grabagun.com/firearms/muzzleloaders.html">
+<span>Muzzleloaders</span>
+</a>
+</li>
+</ul>
+</li><li class="level0 nav-2 active level-top">
+<a href="http://grabagun.com/sale-items.html" class="level-top">
+<span>Clearance Firearms</span>
+</a>
+</li><li class="level0 nav-3 level-top parent">
+<a href="http://grabagun.com/accessories.html" class="level-top">
+<span>Firearm Accessories</span>
+</a>
+<ul class="level0">
+<li class="level1 nav-3-1 first parent">
+<a href="http://grabagun.com/accessories/lights.html">
+<span>Flashlights</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-3-1-1 first">
+<a href="http://grabagun.com/accessories/lights/personal-lights.html">
+<span>Personal Lights</span>
+</a>
+</li><li class="level2 nav-3-1-2">
+<a href="http://grabagun.com/accessories/lights/weapon-lights.html">
+<span>Weapon Lights</span>
+</a>
+</li><li class="level2 nav-3-1-3">
+<a href="http://grabagun.com/accessories/lights/weapon-light-accessories.html">
+<span>Weapon Light Accessories</span>
+</a>
+</li><li class="level2 nav-3-1-4">
+<a href="http://grabagun.com/accessories/lights/light-mounts.html">
+<span>Light Mounts</span>
+</a>
+</li><li class="level2 nav-3-1-5 last">
+<a href="http://grabagun.com/accessories/lights/light-accessories.html">
+<span>Light Accessories</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-3-2 parent">
+<a href="http://grabagun.com/accessories/cleaning.html">
+<span>Gun Cleaning</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-3-2-6 first">
+<a href="http://grabagun.com/accessories/cleaning/cleaning-kits.html">
+<span>Cleaning Kits</span>
+</a>
+</li><li class="level2 nav-3-2-7">
+<a href="http://grabagun.com/accessories/cleaning/brushes-rods.html">
+<span>Brushes &amp; Rods</span>
+</a>
+</li><li class="level2 nav-3-2-8">
+<a href="http://grabagun.com/accessories/cleaning/bore-cleaners.html">
+<span>Bore Cleaners</span>
+</a>
+</li><li class="level2 nav-3-2-9">
+<a href="http://grabagun.com/accessories/cleaning/lubricants-solvents.html">
+<span>Lubricants &amp; Solvents</span>
+</a>
+</li><li class="level2 nav-3-2-10">
+<a href="http://grabagun.com/accessories/cleaning/tools.html">
+<span>Tools</span>
+</a>
+</li><li class="level2 nav-3-2-11">
+<a href="http://grabagun.com/accessories/cleaning/clothes-pads.html">
+<span>Clothes &amp; Pads</span>
+</a>
+</li><li class="level2 nav-3-2-12">
+<a href="http://grabagun.com/accessories/cleaning/pistol-rug.html">
+<span>Firearm Rugs &amp; Rests</span>
+</a>
+</li><li class="level2 nav-3-2-13">
+<a href="http://grabagun.com/accessories/cleaning/cleaning-other.html">
+<span>Other Cleaning Supplies</span>
+</a>
+</li><li class="level2 nav-3-2-14 last">
+<a href="http://grabagun.com/accessories/cleaning/firearm-refinishing.html">
+<span>Firearm Refinishing</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-3-3 parent">
+<a href="http://grabagun.com/accessories/misc-accessories.html">
+<span>Misc Accessories</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-3-3-15 first">
+<a href="http://grabagun.com/accessories/misc-accessories/pet-accessories.html">
+<span>Pet Accessories</span>
+</a>
+</li><li class="level2 nav-3-3-16">
+<a href="http://grabagun.com/accessories/misc-accessories/training.html">
+<span>Training</span>
+</a>
+</li><li class="level2 nav-3-3-17">
+<a href="http://grabagun.com/accessories/misc-accessories/air-gun-accessories.html">
+<span>Air Gun Accessories</span>
+</a>
+</li><li class="level2 nav-3-3-18">
+<a href="http://grabagun.com/accessories/misc-accessories/books-videos.html">
+<span>Books &amp; Videos</span>
+</a>
+</li><li class="level2 nav-3-3-19 last">
+<a href="http://grabagun.com/accessories/misc-accessories/batteries.html">
+<span>Batteries</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-3-4 parent">
+<a href="http://grabagun.com/accessories/storage.html">
+<span>Storage</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-3-4-20 first">
+<a href="http://grabagun.com/accessories/storage/safes.html">
+<span>Gun Vaults &amp; Safes</span>
+</a>
+</li><li class="level2 nav-3-4-21">
+<a href="http://grabagun.com/accessories/storage/gun-racks.html">
+<span>Gun Racks</span>
+</a>
+</li><li class="level2 nav-3-4-22">
+<a href="http://grabagun.com/accessories/storage/gun-socks.html">
+<span>Gun Socks</span>
+</a>
+</li><li class="level2 nav-3-4-23">
+<a href="http://grabagun.com/accessories/storage/gun-locks.html">
+<span>Gun Locks</span>
+</a>
+</li><li class="level2 nav-3-4-24">
+<a href="http://grabagun.com/accessories/storage/cases.html">
+<span>Gun Cases</span>
+</a>
+</li><li class="level2 nav-3-4-25">
+<a href="http://grabagun.com/accessories/storage/carrying-bags.html">
+<span>Carrying Bags</span>
+</a>
+</li><li class="level2 nav-3-4-26">
+<a href="http://grabagun.com/accessories/storage/ammo-storage.html">
+<span>Ammo Storage</span>
+</a>
+</li><li class="level2 nav-3-4-27 last">
+<a href="http://grabagun.com/accessories/storage/gun-storage-accessories.html">
+<span>Gun Storage Accessories</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-3-5 parent">
+<a href="http://grabagun.com/accessories/eye-ear-protection.html">
+<span>Eye &amp; Ear Protection</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-3-5-28 first">
+<a href="http://grabagun.com/accessories/eye-ear-protection/eye-protection.html">
+<span>Eye Protection</span>
+</a>
+</li><li class="level2 nav-3-5-29 last">
+<a href="http://grabagun.com/accessories/eye-ear-protection/ear-protection.html">
+<span>Ear Protection</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-3-6 parent">
+<a href="http://grabagun.com/accessories/shooting-targets.html">
+<span>Shooting Targets</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-3-6-30 first">
+<a href="http://grabagun.com/accessories/shooting-targets/targets.html">
+<span>Targets</span>
+</a>
+</li><li class="level2 nav-3-6-31 last">
+<a href="http://grabagun.com/accessories/shooting-targets/traps-clay-throwers.html">
+<span>Traps &amp; Clay Throwers</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-3-7 parent">
+<a href="http://grabagun.com/accessories/gun-accessories-for-sale.html">
+<span>Gun Accessories</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-3-7-32 first">
+<a href="http://grabagun.com/accessories/gun-accessories-for-sale/conversion-kits.html">
+<span>Conversion Kits</span>
+</a>
+</li><li class="level2 nav-3-7-33">
+<a href="http://grabagun.com/accessories/gun-accessories-for-sale/grips-pads.html">
+<span>Grips &amp; Recoil Pads</span>
+</a>
+</li><li class="level2 nav-3-7-34">
+<a href="http://grabagun.com/accessories/gun-accessories-for-sale/stocks-forends.html">
+<span>Stocks &amp; Forends</span>
+</a>
+</li><li class="level2 nav-3-7-35">
+<a href="http://grabagun.com/accessories/gun-accessories-for-sale/slings.html">
+<span>Slings</span>
+</a>
+</li><li class="level2 nav-3-7-36">
+<a href="http://grabagun.com/accessories/gun-accessories-for-sale/swivels.html">
+<span>Swivels</span>
+</a>
+</li><li class="level2 nav-3-7-37">
+<a href="http://grabagun.com/accessories/gun-accessories-for-sale/rails.html">
+<span>Rails</span>
+</a>
+</li><li class="level2 nav-3-7-38">
+<a href="http://grabagun.com/accessories/gun-accessories-for-sale/chocke-tubes.html">
+<span>Choke Tubes</span>
+</a>
+</li><li class="level2 nav-3-7-39">
+<a href="http://grabagun.com/accessories/gun-accessories-for-sale/cheek-rests.html">
+<span>Cheek Rests</span>
+</a>
+</li><li class="level2 nav-3-7-40">
+<a href="http://grabagun.com/accessories/gun-accessories-for-sale/supressors.html">
+<span>Supressors</span>
+</a>
+</li><li class="level2 nav-3-7-41">
+<a href="http://grabagun.com/accessories/gun-accessories-for-sale/muzzleloader-accessories.html">
+<span>Muzzleloader Accessories</span>
+</a>
+</li><li class="level2 nav-3-7-42 last">
+<a href="http://grabagun.com/accessories/gun-accessories-for-sale/gun-rests-bipods-tripods.html">
+<span>Gun Rests, Bipods &amp; Tripods</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-3-8 parent">
+<a href="http://grabagun.com/accessories/non-lethal-defense.html">
+<span>Non-Lethal Defense</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-3-8-43 first">
+<a href="http://grabagun.com/accessories/non-lethal-defense/tasers.html">
+<span>Tasers &amp; Stunguns</span>
+</a>
+</li><li class="level2 nav-3-8-44">
+<a href="http://grabagun.com/accessories/non-lethal-defense/pepper-spray.html">
+<span>Pepper Spray</span>
+</a>
+</li><li class="level2 nav-3-8-45">
+<a href="http://grabagun.com/accessories/non-lethal-defense/batons.html">
+<span>Batons</span>
+</a>
+</li><li class="level2 nav-3-8-46">
+<a href="http://grabagun.com/accessories/non-lethal-defense/handcuffs.html">
+<span>Handcuffs</span>
+</a>
+</li><li class="level2 nav-3-8-47 last">
+<a href="http://grabagun.com/accessories/non-lethal-defense/other-non-lethal-defense.html">
+<span>Other Non-Lethal Defense</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-3-9 parent">
+<a href="http://grabagun.com/accessories/hunting-camping.html">
+<span>Hunting &amp; Camping</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-3-9-48 first parent">
+<a href="http://grabagun.com/accessories/hunting-camping/hunting.html">
+<span>Hunting</span>
+</a>
+<ul class="level2">
+<li class="level3 nav-3-9-48-1 first">
+<a href="http://grabagun.com/accessories/hunting-camping/hunting/hunting-cameras.html">
+<span>Hunting Cameras</span>
+</a>
+</li><li class="level3 nav-3-9-48-2">
+<a href="http://grabagun.com/accessories/hunting-camping/hunting/blinds-treestands.html">
+<span>Blinds &amp; Treestands</span>
+</a>
+</li><li class="level3 nav-3-9-48-3">
+<a href="http://grabagun.com/accessories/hunting-camping/hunting/blind-treestand-accessories.html">
+<span>Blind &amp; Treestand Accessories</span>
+</a>
+</li><li class="level3 nav-3-9-48-4">
+<a href="http://grabagun.com/accessories/hunting-camping/hunting/camouflage-materials.html">
+<span>Camouflage Materials</span>
+</a>
+</li><li class="level3 nav-3-9-48-5">
+<a href="http://grabagun.com/accessories/hunting-camping/hunting/decoys.html">
+<span>Decoys</span>
+</a>
+</li><li class="level3 nav-3-9-48-6">
+<a href="http://grabagun.com/accessories/hunting-camping/hunting/feeders.html">
+<span>Feeders</span>
+</a>
+</li><li class="level3 nav-3-9-48-7">
+<a href="http://grabagun.com/accessories/hunting-camping/hunting/scents.html">
+<span>Scents</span>
+</a>
+</li><li class="level3 nav-3-9-48-8">
+<a href="http://grabagun.com/accessories/hunting-camping/hunting/game-calls.html">
+<span>Game Calls</span>
+</a>
+</li><li class="level3 nav-3-9-48-9">
+<a href="http://grabagun.com/accessories/hunting-camping/hunting/hunting-accessories.html">
+<span>Hunting Accessories</span>
+</a>
+</li><li class="level3 nav-3-9-48-10 last">
+<a href="http://grabagun.com/accessories/hunting-camping/hunting/sling-shots.html">
+<span>Sling Shots</span>
+</a>
+</li>
+</ul>
+</li><li class="level2 nav-3-9-49 parent">
+<a href="http://grabagun.com/accessories/hunting-camping/camping.html">
+<span>Camping</span>
+</a>
+<ul class="level2">
+<li class="level3 nav-3-9-49-11 first">
+<a href="http://grabagun.com/accessories/hunting-camping/camping/camping-accessories.html">
+<span>Camping Accessories</span>
+</a>
+</li><li class="level3 nav-3-9-49-12">
+<a href="http://grabagun.com/accessories/hunting-camping/camping/coolers.html">
+<span>Coolers</span>
+</a>
+</li><li class="level3 nav-3-9-49-13">
+<a href="http://grabagun.com/accessories/hunting-camping/camping/cooking.html">
+<span>Cooking &amp; Utensils</span>
+</a>
+</li><li class="level3 nav-3-9-49-14">
+<a href="http://grabagun.com/accessories/hunting-camping/camping/insect-repellants.html">
+<span>Insect Repellants</span>
+</a>
+</li><li class="level3 nav-3-9-49-15">
+<a href="http://grabagun.com/accessories/hunting-camping/camping/survival.html">
+<span>Survival</span>
+</a>
+</li><li class="level3 nav-3-9-49-16">
+<a href="http://grabagun.com/accessories/hunting-camping/camping/tents.html">
+<span>Tents</span>
+</a>
+</li><li class="level3 nav-3-9-49-17">
+<a href="http://grabagun.com/accessories/hunting-camping/camping/seats-chairs.html">
+<span>Seats &amp; Chairs</span>
+</a>
+</li><li class="level3 nav-3-9-49-18">
+<a href="http://grabagun.com/accessories/hunting-camping/camping/camp-lighting.html">
+<span>Camp Lighting</span>
+</a>
+</li><li class="level3 nav-3-9-49-19">
+<a href="http://grabagun.com/accessories/hunting-camping/camping/food.html">
+<span>Food</span>
+</a>
+</li><li class="level3 nav-3-9-49-20">
+<a href="http://grabagun.com/accessories/hunting-camping/camping/sleeping-bags.html">
+<span>Sleeping Bags &amp; Camp Bedding</span>
+</a>
+</li><li class="level3 nav-3-9-49-21">
+<a href="http://grabagun.com/accessories/hunting-camping/camping/first-aid.html">
+<span>First Aid</span>
+</a>
+</li><li class="level3 nav-3-9-49-22">
+<a href="http://grabagun.com/accessories/hunting-camping/camping/compasses.html">
+<span>Compasses</span>
+</a>
+</li><li class="level3 nav-3-9-49-23">
+<a href="http://grabagun.com/accessories/hunting-camping/camping/hydration.html">
+<span>Hydration</span>
+</a>
+</li><li class="level3 nav-3-9-49-24">
+<a href="http://grabagun.com/accessories/hunting-camping/camping/camp-heaters.html">
+<span>Camp Heaters</span>
+</a>
+</li><li class="level3 nav-3-9-49-25">
+<a href="http://grabagun.com/accessories/hunting-camping/camping/camping-packs.html">
+<span>Camping Packs</span>
+</a>
+</li><li class="level3 nav-3-9-49-26">
+<a href="http://grabagun.com/accessories/hunting-camping/camping/straps-cords.html">
+<span>Straps &amp; Cords</span>
+</a>
+</li><li class="level3 nav-3-9-49-27">
+<a href="http://grabagun.com/accessories/hunting-camping/camping/hand-foot-warmers.html">
+<span>Hand &amp; Foot Warmers</span>
+</a>
+</li><li class="level3 nav-3-9-49-28">
+<a href="http://grabagun.com/accessories/hunting-camping/camping/camping-hygiene.html">
+<span>Camping Hygiene</span>
+</a>
+</li><li class="level3 nav-3-9-49-29 last">
+<a href="http://grabagun.com/accessories/hunting-camping/camping/camping-tools.html">
+<span>Camping Tools</span>
+</a>
+</li>
+</ul>
+</li><li class="level2 nav-3-9-50 last">
+<a href="http://grabagun.com/accessories/hunting-camping/fishing.html">
+<span>Fishing</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-3-10 parent">
+<a href="http://grabagun.com/accessories/archery.html">
+<span>Archery</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-3-10-51 first">
+<a href="http://grabagun.com/accessories/archery/crossbows.html">
+<span>Crossbows</span>
+</a>
+</li><li class="level2 nav-3-10-52">
+<a href="http://grabagun.com/accessories/archery/crossbow-bolts.html">
+<span>Crossbow Bolts</span>
+</a>
+</li><li class="level2 nav-3-10-53">
+<a href="http://grabagun.com/accessories/archery/compound-bows.html">
+<span>Compound Bows</span>
+</a>
+</li><li class="level2 nav-3-10-54">
+<a href="http://grabagun.com/accessories/archery/recurve-bows.html">
+<span>Recurve Bows</span>
+</a>
+</li><li class="level2 nav-3-10-55">
+<a href="http://grabagun.com/accessories/archery/arrows.html">
+<span>Arrows</span>
+</a>
+</li><li class="level2 nav-3-10-56">
+<a href="http://grabagun.com/accessories/archery/quivers.html">
+<span>Quivers</span>
+</a>
+</li><li class="level2 nav-3-10-57">
+<a href="http://grabagun.com/accessories/archery/strings.html">
+<span>Strings</span>
+</a>
+</li><li class="level2 nav-3-10-58">
+<a href="http://grabagun.com/accessories/archery/archery-sights.html">
+<span>Archery Sights</span>
+</a>
+</li><li class="level2 nav-3-10-59">
+<a href="http://grabagun.com/accessories/archery/archery-accessories.html">
+<span>Archery Accessories</span>
+</a>
+</li><li class="level2 nav-3-10-60">
+<a href="http://grabagun.com/accessories/archery/vanes.html">
+<span>Vanes</span>
+</a>
+</li><li class="level2 nav-3-10-61">
+<a href="http://grabagun.com/accessories/archery/blowguns.html">
+<span>Blowguns</span>
+</a>
+</li><li class="level2 nav-3-10-62">
+<a href="http://grabagun.com/accessories/archery/releases.html">
+<span>Releases</span>
+</a>
+</li><li class="level2 nav-3-10-63">
+<a href="http://grabagun.com/accessories/archery/stabilizers.html">
+<span>Stabilizers</span>
+</a>
+</li><li class="level2 nav-3-10-64">
+<a href="http://grabagun.com/accessories/archery/archery-rests.html">
+<span>Archery Rests</span>
+</a>
+</li><li class="level2 nav-3-10-65">
+<a href="http://grabagun.com/accessories/archery/bowfishing.html">
+<span>Bowfishing</span>
+</a>
+</li><li class="level2 nav-3-10-66 last">
+<a href="http://grabagun.com/accessories/archery/archery-cases.html">
+<span>Archery Cases</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-3-11 parent">
+<a href="http://grabagun.com/accessories/knives.html">
+<span>Knives</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-3-11-67 first">
+<a href="http://grabagun.com/accessories/knives/multi-tool.html">
+<span>Multi Tool</span>
+</a>
+</li><li class="level2 nav-3-11-68">
+<a href="http://grabagun.com/accessories/knives/folding-knife.html">
+<span>Folding Knife</span>
+</a>
+</li><li class="level2 nav-3-11-69">
+<a href="http://grabagun.com/accessories/knives/fixed-blade.html">
+<span>Fixed Blade</span>
+</a>
+</li><li class="level2 nav-3-11-70">
+<a href="http://grabagun.com/accessories/knives/saw.html">
+<span>Saw</span>
+</a>
+</li><li class="level2 nav-3-11-71">
+<a href="http://grabagun.com/accessories/knives/axes.html">
+<span>Axes</span>
+</a>
+</li><li class="level2 nav-3-11-72">
+<a href="http://grabagun.com/accessories/knives/other-knives.html">
+<span>Other Knives</span>
+</a>
+</li><li class="level2 nav-3-11-73">
+<a href="http://grabagun.com/accessories/knives/machetes.html">
+<span>Machetes</span>
+</a>
+</li><li class="level2 nav-3-11-74">
+<a href="http://grabagun.com/accessories/knives/swords.html">
+<span>Swords</span>
+</a>
+</li><li class="level2 nav-3-11-75">
+<a href="http://grabagun.com/accessories/knives/sharpening-tools.html">
+<span>Sharpening Tools</span>
+</a>
+</li><li class="level2 nav-3-11-76 last">
+<a href="http://grabagun.com/accessories/knives/knife-accessories.html">
+<span>Knife Accessories</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-3-12 last">
+<a href="http://grabagun.com/accessories/gift-cards.html">
+<span>Gift Cards</span>
+</a>
+</li>
+</ul>
+</li><li class="level0 nav-4 level-top parent">
+<a href="http://grabagun.com/magazines.html" class="level-top">
+<span>Magazines</span>
+</a>
+<ul class="level0">
+<li class="level1 nav-4-1 first">
+<a href="http://grabagun.com/magazines/handgun-magazines.html">
+<span>Handgun Magazines</span>
+</a>
+</li><li class="level1 nav-4-2 parent">
+<a href="http://grabagun.com/magazines/rifle-magazines-root.html">
+<span>Rifle Magazines</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-4-2-1 first">
+<a href="http://grabagun.com/magazines/rifle-magazines-root/ar-magazines.html">
+<span>AR Magazines</span>
+</a>
+</li><li class="level2 nav-4-2-2">
+<a href="http://grabagun.com/magazines/rifle-magazines-root/ak-magazines.html">
+<span>AK Magazines</span>
+</a>
+</li><li class="level2 nav-4-2-3 last">
+<a href="http://grabagun.com/magazines/rifle-magazines-root/rifle-magazines.html">
+<span>Rifle Magazines</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-4-3">
+<a href="http://grabagun.com/magazines/shotgun-magazines.html">
+<span>Shotgun Magazines</span>
+</a>
+</li><li class="level1 nav-4-4">
+<a href="http://grabagun.com/magazines/magazine-accessories.html">
+<span>Magazine Accessories</span>
+</a>
+</li><li class="level1 nav-4-5">
+<a href="http://grabagun.com/magazines/moon-clips.html">
+<span>Moon Clips</span>
+</a>
+</li><li class="level1 nav-4-6">
+<a href="http://grabagun.com/magazines/magazine-loaders.html">
+<span>Magazine Loaders</span>
+</a>
+</li><li class="level1 nav-4-7 last">
+<a href="http://grabagun.com/magazines/magazine-pouches.html">
+<span>Magazine Pouches</span>
+</a>
+</li>
+</ul>
+</li><li class="level0 nav-5 level-top parent">
+<a href="http://grabagun.com/scopes-optics.html" class="level-top">
+<span>Scopes, Optics &amp; Mounts</span>
+</a>
+<ul class="level0">
+<li class="level1 nav-5-1 first parent">
+<a href="http://grabagun.com/scopes-optics/lasers-root.html">
+<span>Lasers</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-5-1-1 first">
+<a href="http://grabagun.com/scopes-optics/lasers-root/lasers.html">
+<span>Lasers</span>
+</a>
+</li><li class="level2 nav-5-1-2">
+<a href="http://grabagun.com/scopes-optics/lasers-root/laser-mounts.html">
+<span>Laser Mounts</span>
+</a>
+</li><li class="level2 nav-5-1-3 last">
+<a href="http://grabagun.com/scopes-optics/lasers-root/laser-accessories.html">
+<span>Laser Accessories</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-5-2 parent">
+<a href="http://grabagun.com/scopes-optics/gun-sights.html">
+<span>Gun Sights</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-5-2-4 first">
+<a href="http://grabagun.com/scopes-optics/gun-sights/ar-sights.html">
+<span>AR &amp; AK Sights</span>
+</a>
+</li><li class="level2 nav-5-2-5">
+<a href="http://grabagun.com/scopes-optics/gun-sights/handgun-sights.html">
+<span>Handgun Sights</span>
+</a>
+</li><li class="level2 nav-5-2-6">
+<a href="http://grabagun.com/scopes-optics/gun-sights/rifle-sights.html">
+<span>Rifle Sights</span>
+</a>
+</li><li class="level2 nav-5-2-7 last">
+<a href="http://grabagun.com/scopes-optics/gun-sights/shotgun-sights.html">
+<span>Shotgun Sights</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-5-3 parent">
+<a href="http://grabagun.com/scopes-optics/scopes.html">
+<span>Scopes</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-5-3-8 first">
+<a href="http://grabagun.com/scopes-optics/scopes/rifle-scopes.html">
+<span>Rifle Scopes</span>
+</a>
+</li><li class="level2 nav-5-3-9">
+<a href="http://grabagun.com/scopes-optics/scopes/handgun-scopes.html">
+<span>Handgun Scopes</span>
+</a>
+</li><li class="level2 nav-5-3-10">
+<a href="http://grabagun.com/scopes-optics/scopes/spotting-scopes.html">
+<span>Spotting Scopes</span>
+</a>
+</li><li class="level2 nav-5-3-11">
+<a href="http://grabagun.com/scopes-optics/scopes/binoculars.html">
+<span>Binoculars</span>
+</a>
+</li><li class="level2 nav-5-3-12 last">
+<a href="http://grabagun.com/scopes-optics/scopes/magnifiers.html">
+<span>Magnifiers</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-5-4">
+<a href="http://grabagun.com/scopes-optics/scope-rings-adapters.html">
+<span>Scope Rings &amp; Adapters</span>
+</a>
+</li><li class="level1 nav-5-5">
+<a href="http://grabagun.com/scopes-optics/scope-bases-rails.html">
+<span>Scope Bases &amp; Rails</span>
+</a>
+</li><li class="level1 nav-5-6 parent">
+<a href="http://grabagun.com/scopes-optics/optical-accessories.html">
+<span>Optical Accessories</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-5-6-13 first">
+<a href="http://grabagun.com/scopes-optics/optical-accessories/bore-sighters.html">
+<span>Bore Sighters</span>
+</a>
+</li><li class="level2 nav-5-6-14 last">
+<a href="http://grabagun.com/scopes-optics/optical-accessories/scope-covers-accessories.html">
+<span>Scope Covers &amp; Accessories</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-5-7">
+<a href="http://grabagun.com/scopes-optics/night-vision.html">
+<span>Night Vision</span>
+</a>
+</li><li class="level1 nav-5-8">
+<a href="http://grabagun.com/scopes-optics/range-finders.html">
+<span>Range Finders</span>
+</a>
+</li><li class="level1 nav-5-9 last">
+<a href="http://grabagun.com/scopes-optics/misc-optics.html">
+<span>Misc Optics</span>
+</a>
+</li>
+</ul>
+</li><li class="level0 nav-6 level-top parent">
+<a href="http://grabagun.com/holsters.html" class="level-top">
+<span>Holsters</span>
+</a>
+<ul class="level0">
+<li class="level1 nav-6-1 first">
+<a href="http://grabagun.com/holsters/ankle-holsters.html">
+<span>Ankle Holsters</span>
+</a>
+</li><li class="level1 nav-6-2">
+<a href="http://grabagun.com/holsters/belt-holsters.html">
+<span>Belt Holsters</span>
+</a>
+</li><li class="level1 nav-6-3">
+<a href="http://grabagun.com/holsters/concealment-holsters.html">
+<span>Concealment Holsters</span>
+</a>
+</li><li class="level1 nav-6-4">
+<a href="http://grabagun.com/holsters/paddle-holsters.html">
+<span>Paddle Holsters</span>
+</a>
+</li><li class="level1 nav-6-5">
+<a href="http://grabagun.com/holsters/inside-the-pants-holsters.html">
+<span>Inside-The-Pants Holsters</span>
+</a>
+</li><li class="level1 nav-6-6">
+<a href="http://grabagun.com/holsters/pocket-holsters.html">
+<span>Pocket Holsters</span>
+</a>
+</li><li class="level1 nav-6-7">
+<a href="http://grabagun.com/holsters/pancake-holsters.html">
+<span>Pancake Holsters</span>
+</a>
+</li><li class="level1 nav-6-8">
+<a href="http://grabagun.com/holsters/shoulder-holster-system.html">
+<span>Shoulder Holster System</span>
+</a>
+</li><li class="level1 nav-6-9">
+<a href="http://grabagun.com/holsters/thumbdrive-holsters.html">
+<span>Thumbdrive Holsters</span>
+</a>
+</li><li class="level1 nav-6-10">
+<a href="http://grabagun.com/holsters/drop-leg-holsters.html">
+<span>Drop Leg Holsters</span>
+</a>
+</li><li class="level1 nav-6-11">
+<a href="http://grabagun.com/holsters/holster-accessories.html">
+<span>Holster Accessories</span>
+</a>
+</li><li class="level1 nav-6-12 last">
+<a href="http://grabagun.com/holsters/load-bearing-equipment-holsters.html">
+<span>Load Bearing Equipment Holsters</span>
+</a>
+</li>
+</ul>
+</li><li class="level0 nav-7 level-top parent">
+<a href="http://grabagun.com/tactical-gear.html" class="level-top">
+<span>Tactical Gear</span>
+</a>
+<ul class="level0">
+<li class="level1 nav-7-1 first parent">
+<a href="http://grabagun.com/tactical-gear/apparel.html">
+<span>Apparel</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-7-1-1 first">
+<a href="http://grabagun.com/tactical-gear/apparel/shirts.html">
+<span>Shirts</span>
+</a>
+</li><li class="level2 nav-7-1-2">
+<a href="http://grabagun.com/tactical-gear/apparel/belts.html">
+<span>Belts</span>
+</a>
+</li><li class="level2 nav-7-1-3">
+<a href="http://grabagun.com/tactical-gear/apparel/jackets.html">
+<span>Jackets</span>
+</a>
+</li><li class="level2 nav-7-1-4">
+<a href="http://grabagun.com/tactical-gear/apparel/vests.html">
+<span>Vests</span>
+</a>
+</li><li class="level2 nav-7-1-5">
+<a href="http://grabagun.com/tactical-gear/apparel/footwear.html">
+<span>Footwear</span>
+</a>
+</li><li class="level2 nav-7-1-6">
+<a href="http://grabagun.com/tactical-gear/apparel/shorts.html">
+<span>Shorts</span>
+</a>
+</li><li class="level2 nav-7-1-7 last">
+<a href="http://grabagun.com/tactical-gear/apparel/pants.html">
+<span>Pants</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-7-2">
+<a href="http://grabagun.com/tactical-gear/backpacks.html">
+<span>Backpacks</span>
+</a>
+</li><li class="level1 nav-7-3">
+<a href="http://grabagun.com/tactical-gear/gloves.html">
+<span>Gloves</span>
+</a>
+</li><li class="level1 nav-7-4">
+<a href="http://grabagun.com/tactical-gear/watches.html">
+<span>Watches</span>
+</a>
+</li><li class="level1 nav-7-5 last">
+<a href="http://grabagun.com/tactical-gear/headwear.html">
+<span>Headwear</span>
+</a>
+</li>
+</ul>
+</li><li class="level0 nav-8 level-top last parent">
+<a href="http://grabagun.com/gun-parts-for-sale.html" class="level-top">
+<span>Gun Parts</span>
+</a>
+<ul class="level0">
+<li class="level1 nav-8-1 first parent">
+<a href="http://grabagun.com/gun-parts-for-sale/rifle-parts-root.html">
+<span>Rifle Parts</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-8-1-1 first">
+<a href="http://grabagun.com/gun-parts-for-sale/rifle-parts-root/rifle-parts.html">
+<span>Rifle Parts</span>
+</a>
+</li><li class="level2 nav-8-1-2 last">
+<a href="http://grabagun.com/gun-parts-for-sale/rifle-parts-root/rifle-barrels.html">
+<span>Rifle Barrels</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-8-2 parent">
+<a href="http://grabagun.com/gun-parts-for-sale/handgun-parts-root.html">
+<span>Handgun Parts</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-8-2-3 first">
+<a href="http://grabagun.com/gun-parts-for-sale/handgun-parts-root/handgun-parts.html">
+<span>Handgun Parts</span>
+</a>
+</li><li class="level2 nav-8-2-4 last">
+<a href="http://grabagun.com/gun-parts-for-sale/handgun-parts-root/handgun-barrels.html">
+<span>Handgun Barrels</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-8-3 parent">
+<a href="http://grabagun.com/gun-parts-for-sale/shotgun-parts-root.html">
+<span>Shotgun Parts</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-8-3-5 first">
+<a href="http://grabagun.com/gun-parts-for-sale/shotgun-parts-root/shotgun-parts.html">
+<span>Shotgun Parts</span>
+</a>
+</li><li class="level2 nav-8-3-6 last">
+<a href="http://grabagun.com/gun-parts-for-sale/shotgun-parts-root/shotgun-barrels.html">
+<span>Shotgun Barrels</span>
+</a>
+</li>
+</ul>
+</li><li class="level1 nav-8-4 last parent">
+<a href="http://grabagun.com/gun-parts-for-sale/ar-ak-parts.html">
+<span>AR &amp; AK Parts</span>
+</a>
+<ul class="level1">
+<li class="level2 nav-8-4-7 first">
+<a href="http://grabagun.com/gun-parts-for-sale/ar-ak-parts/flash-suppressors.html">
+<span>Flash Suppressors</span>
+</a>
+</li><li class="level2 nav-8-4-8">
+<a href="http://grabagun.com/gun-parts-for-sale/ar-ak-parts/muzzle-brakes.html">
+<span>Muzzle Brakes</span>
+</a>
+</li><li class="level2 nav-8-4-9">
+<a href="http://grabagun.com/gun-parts-for-sale/ar-ak-parts/charging-handles.html">
+<span>Charging Handles</span>
+</a>
+</li><li class="level2 nav-8-4-10">
+<a href="http://grabagun.com/gun-parts-for-sale/ar-ak-parts/ar-barrels.html">
+<span>AR Barrels</span>
+</a>
+</li><li class="level2 nav-8-4-11">
+<a href="http://grabagun.com/gun-parts-for-sale/ar-ak-parts/buffer-tubes.html">
+<span>Buffer Tubes</span>
+</a>
+</li><li class="level2 nav-8-4-12">
+<a href="http://grabagun.com/gun-parts-for-sale/ar-ak-parts/parts-kits.html">
+<span>Parts Kits</span>
+</a>
+</li><li class="level2 nav-8-4-13">
+<a href="http://grabagun.com/gun-parts-for-sale/ar-ak-parts/triggers-trigger-guards.html">
+<span>Triggers &amp; Trigger Guards</span>
+</a>
+</li><li class="level2 nav-8-4-14">
+<a href="http://grabagun.com/gun-parts-for-sale/ar-ak-parts/gas-tubes-gas-blocks.html">
+<span>Gas Tubes &amp; Gas Blocks</span>
+</a>
+</li><li class="level2 nav-8-4-15">
+<a href="http://grabagun.com/gun-parts-for-sale/ar-ak-parts/carry-handles.html">
+<span>Carry Handles</span>
+</a>
+</li><li class="level2 nav-8-4-16 last">
+<a href="http://grabagun.com/gun-parts-for-sale/ar-ak-parts/misc-ar-ak-parts.html">
+<span>Misc AR &amp; AK Parts</span>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>    </ul>
+</div>
+	</div>
+
+
+	<script>
+		function css_browser_selector(u) {
+			var ua = u.toLowerCase(), is = function(t) {
+				return ua.indexOf(t) > -1
+			}, g = 'gecko', w = 'webkit', s = 'safari', o = 'opera', m = 'mobile', h = document.documentElement, b = [(!(/opera|webtv/i.test(ua)) && /msie\s(\d)/.test(ua)) ? ('ie ie' + RegExp.$1) : is('firefox/2') ? g + ' ff2' : is('firefox/3.5') ? g + ' ff3 ff3_5' : is('firefox/3.6') ? g + ' ff3 ff3_6' : is('firefox/3') ? g + ' ff3' : is('gecko/') ? g : is('opera') ? o + (/version\/(\d+)/.test(ua) ? ' ' + o + RegExp.$1 : (/opera(\s|\/)(\d+)/.test(ua) ? ' ' + o + RegExp.$2 : '')) : is('konqueror') ? 'konqueror' : is('blackberry') ? m + ' blackberry' : is('android') ? m + ' android' : is('chrome') ? w + ' chrome' : is('iron') ? w + ' iron' : is('applewebkit/') ? w + ' ' + s + (/version\/(\d+)/.test(ua) ? ' ' + s + RegExp.$1 : '') : is('mozilla/') ? g : '', is('j2me') ? m + ' j2me' : is('iphone') ? m + ' iphone' : is('ipod') ? m + ' ipod' : is('ipad') ? m + ' ipad' : is('mac') ? 'mac' : is('darwin') ? 'mac' : is('webtv') ? 'webtv' : is('win') ? 'win' + (is('windows nt 6.0') ? ' vista' : '') : is('freebsd') ? 'freebsd' : (is('x11') || is('linux')) ? 'linux' : '', 'js'];
+			c = b.join(' ');
+			h.className += ' ' + c;
+			return c;
+		}
+		;
+		css_browser_selector(navigator.userAgent);
+	</script>
+	
+	
+        <div class="main-container col2-left-layout">
+         <div id="header_slider_div">        
+            <script src="http://grabagun.com/skin/frontend/default/default/js/easybanner/jquery.cycle.js" type="text/javascript"></script>
+
+<div id="top_banner_2546" style="width: 956px; padding:0px; height: 90px; background:none; position: relative; display:none;">
+      <div id="divSimpleSlider_2546">   
+			<a href="http://grabagun.com/giveaway"> 
+				<img src="/media/easybanner/GAG-AD_Header_gunsite.png" width="956px " height=" 90px" alt="easybanner" />
+		        </a>    
+        	<a href="http://grabagun.com/layaway"> 
+				<img src="/media/easybanner/GAG-AD_Header_NewStyle_SNPL.png" width="956px " height=" 90px" alt="easybanner" />
+		        </a>    
+              </div>
+      <div id="divSimpleSliderRotate_2546" class="sliderRotate"></div>
+</div>
+<script type="text/javascript">
+var $j = jQuery.noConflict(); 
+
+  $j(document).ready(function(){
+    //Setup the main rotater on the home page
+    $j('#divSimpleSlider_2546').cycle({
+      speed:       3500,
+      timeout:     3500,
+      pager:      '#divSimpleSliderRotate_2546',
+      pagerEvent: 'click',
+      fastOnEvent: false
+    });
+     $j('#top_banner_2546').fadeIn(500);
+  });
+ 
+</script>
+         </div>
+        <div class="main">
+			<div id="gag_global_msg"><p style="text-align: center;"><span style="color: #339966; font-size: large;"><strong>We will </strong></span><strong><span style="font-size: large; color: #339966;">close at Noon CST December 31st and all-day January 1st, Celebrating the New Year.</span></strong></p>
+<p style="text-align: center;"><strong><span style="font-size: large; color: #339966;">Orders placed during that time will begin processing on Friday.</span></strong></p></div>
+            <!-- ENDHeaderContainer -->
+                <div class="breadcrumbs">
+    <ul>
+                    <li class="home">
+                            <a href="http://grabagun.com/" title="Go to Home Page">Home</a>
+                                        <span>/ </span>
+                        </li>
+                    <li class="category59">
+                            <strong>Clearance Firearms</strong>
+                                    </li>
+            </ul>
+</div>
+                					<div class="page-headers">
+						<!--div class="defend-and-protect">
+						</div -->
+					</div>
+                    <div class="col-main">
+	                    	                    <div class="page-title category-title">
+        <h1>Clearance Firearms</h1>
+</div>
+
+
+
+
+	        
+    <div class="category-products">
+    <div class="toolbar">
+    <div class="pager">
+        <p class="amount">
+                            Items 181 to 200 of 222 total                    </p>
+
+        <div class="limiter">
+            <label>Show</label>
+            <select onchange="setLocation(this.value)">
+                            <option value="http://grabagun.com/sale-items.html?limit=12">
+                    12                </option>
+                            <option value="http://grabagun.com/sale-items.html?limit=20" selected="selected">
+                    20                </option>
+                            <option value="http://grabagun.com/sale-items.html?limit=50">
+                    50                </option>
+                            <option value="http://grabagun.com/sale-items.html?limit=100">
+                    100                </option>
+                        </select> per page        </div>
+
+        
+    
+    
+    
+        <div class="pages">
+        <strong>Page:</strong>
+        <ol>
+                    <li>
+                <a class="previous i-previous" href="http://grabagun.com/sale-items.html?limit=20&amp;p=9" title="Previous">
+                                            <img src="http://grabagun.com/skin/frontend/default/default/images/pager_arrow_left.gif" alt="Previous" class="v-middle" />
+                                    </a>
+            </li>
+        
+        
+        
+                                    <li><a href="http://grabagun.com/sale-items.html?limit=20&amp;p=8">8</a></li>
+                                                <li><a href="http://grabagun.com/sale-items.html?limit=20&amp;p=9">9</a></li>
+                                                <li class="current">10</li>
+                                                <li><a href="http://grabagun.com/sale-items.html?limit=20&amp;p=11">11</a></li>
+                                                <li><a href="http://grabagun.com/sale-items.html?limit=20&amp;p=12">12</a></li>
+                    
+
+        
+        
+                    <li>
+                <a class="next i-next" href="http://grabagun.com/sale-items.html?limit=20&amp;p=11" title="Next">
+                                            <img src="http://grabagun.com/skin/frontend/default/default/images/pager_arrow_right.gif" alt="Next" class="v-middle" />
+                                    </a>
+            </li>
+                </ol>
+
+    </div>
+    
+    
+
+    </div>
+
+        <div class="sorter">
+                <div class="view-mode">
+                                    <label>View as:</label>
+                                                <strong title="Grid" class="grid">Grid</strong>
+                                                                <a href="http://grabagun.com/sale-items.html?limit=20&amp;mode=list" title="List" class="list">List</a>
+                                                </div>
+                
+    
+        <div class="sort-by">
+            <label>Sort by:</label>
+                                        <a href="http://grabagun.com/sale-items.html?dir=asc&amp;limit=20&amp;order=position">Position</a>
+                   
+                          
+                         
+            <span class="current">Name</span>
+                   
+                          
+                                        <a href="http://grabagun.com/sale-items.html?dir=asc&amp;limit=20&amp;order=price">Price</a>
+                   
+                          
+                                        <a href="http://grabagun.com/sale-items.html?dir=asc&amp;limit=20&amp;order=caliber">Caliber</a>
+                   
+                          
+                                        <a href="http://grabagun.com/sale-items.html?dir=asc&amp;limit=20&amp;order=manufacturer">Manufacturer</a>
+                   
+                          
+                                        <a href="http://grabagun.com/sale-items.html?dir=desc&amp;limit=20&amp;order=name" title="Set Descending Direction"><img src="http://grabagun.com/skin/frontend/default/default/images/i_asc_arrow.gif" alt="Set Descending Direction" class="v-middle" /></a>
+                    </div>
+    </div>
+    </div>
+        
+    
+                    	        <ul class="products-grid">
+                    <li class="item first">
+                <a href="http://grabagun.com/walther-ppk-s-mag-380-acp-7-rds.html" title="Walther PPK/S-MAG .380 ACP 7 RDS" class="product-image"><img src="http://grabagun.com/media/catalog/product/cache/1/small_image/163x/9df78eab33525d08d6e5fb8d27136e95/placeholder/default/GAG_Unavailable_1.png" width="163" height="163" alt="Walther PPK/S-MAG .380 ACP 7 RDS" /></a>
+                <h2 class="product-name"><a href="http://grabagun.com/walther-ppk-s-mag-380-acp-7-rds.html" title="Walther PPK/S-MAG .380 ACP 7 RDS">Walther PPK/S-MAG .380 ACP 7 RDS</a></h2>
+                                
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-129302">
+                                            <span class="price">$32.00</span>                                    </span>
+                        
+        </div>
+
+                
+
+		<div class="actions">
+                                            <img class="addtocartSmall" src="http://grabagun.com/skin/frontend/default/GrabAGun//images/button_addtocartsmall.jpg" alt="Add to Cart" onclick="setLocationAjax('http://grabagun.com/checkout/cart/add/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/product/129302/form_key/HglGM0FwwyhXDvWw/', '129302')" />
+		                        <ul class="add-to-links">
+                                                    <li><a href="https://grabagun.com/wishlist/index/add/product/129302/form_key/HglGM0FwwyhXDvWw/" class="link-wishlist">Add to Wishlist</a></li>
+                                                                            <li><span class="separator">|</span> <a href="http://grabagun.com/catalog/product_compare/add/product/129302/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/" class="link-compare">Add to Compare</a></li>
+                                            </ul>
+                </div>
+            </li>
+                        	            <li class="item">
+                <a href="http://grabagun.com/walther-pps-qa-9mm-3-2-bl-1-7rd.html" title="Product image" class="product-image"><img src="http://grabagun.com/media/catalog/product/cache/1/small_image/163x/9df78eab33525d08d6e5fb8d27136e95/W/a/Walther-PPS-2796333-723364200137.jpg_2.jpg" width="163" height="163" alt="Product image" /></a>
+                <h2 class="product-name"><a href="http://grabagun.com/walther-pps-qa-9mm-3-2-bl-1-7rd.html" title="Walther PPS Pistol 9mm 3.2-inch Black 7rd">Walther PPS Pistol 9mm 3.2-inch Black 7rd</a></h2>
+                                    <div class="ratings">
+                    <div class="rating-box">
+                <div class="rating" style="width:93%"></div>
+            </div>
+                <span class="amount">7 Review(s)</span>
+    </div>
+                                
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-96271">
+                                            <span class="price">$501.11</span>                                    </span>
+                        
+        </div>
+
+                
+
+		<div class="actions">
+                                            <img class="addtocartSmall" src="http://grabagun.com/skin/frontend/default/GrabAGun//images/button_addtocartsmall.jpg" alt="Add to Cart" onclick="setLocationAjax('http://grabagun.com/checkout/cart/add/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/product/96271/form_key/HglGM0FwwyhXDvWw/', '96271')" />
+		                        <ul class="add-to-links">
+                                                    <li><a href="https://grabagun.com/wishlist/index/add/product/96271/form_key/HglGM0FwwyhXDvWw/" class="link-wishlist">Add to Wishlist</a></li>
+                                                                            <li><span class="separator">|</span> <a href="http://grabagun.com/catalog/product_compare/add/product/96271/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/" class="link-compare">Add to Compare</a></li>
+                                            </ul>
+                </div>
+            </li>
+                        	            <li class="item">
+                <a href="http://grabagun.com/walther-ppx-m1-40sw-14rd-blk-poly-fs.html" title="Product image" class="product-image"><img src="http://grabagun.com/media/catalog/product/cache/1/small_image/163x/9df78eab33525d08d6e5fb8d27136e95/W/a/Walther-PPX-M1-2790050-723364200182.jpg_2.jpg" width="163" height="163" alt="Product image" /></a>
+                <h2 class="product-name"><a href="http://grabagun.com/walther-ppx-m1-40sw-14rd-blk-poly-fs.html" title="Walther PPX M1 Pistol .40SW 14rd Black Fixed Sights">Walther PPX M1 Pistol .40SW 14rd Black Fixed Sights</a></h2>
+                                    <div class="ratings">
+                    <div class="rating-box">
+                <div class="rating" style="width:98%"></div>
+            </div>
+                <span class="amount">6 Review(s)</span>
+    </div>
+                                
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-95015">
+                                            <span class="price">$361.58</span>                                    </span>
+                        
+        </div>
+
+                
+
+		<div class="actions">
+                                            <img class="addtocartSmall" src="http://grabagun.com/skin/frontend/default/GrabAGun//images/button_addtocartsmall.jpg" alt="Add to Cart" onclick="setLocationAjax('http://grabagun.com/checkout/cart/add/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/product/95015/form_key/HglGM0FwwyhXDvWw/', '95015')" />
+		                        <ul class="add-to-links">
+                                                    <li><a href="https://grabagun.com/wishlist/index/add/product/95015/form_key/HglGM0FwwyhXDvWw/" class="link-wishlist">Add to Wishlist</a></li>
+                                                                            <li><span class="separator">|</span> <a href="http://grabagun.com/catalog/product_compare/add/product/95015/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/" class="link-compare">Add to Compare</a></li>
+                                            </ul>
+                </div>
+            </li>
+                        	            <li class="item last">
+                <a href="http://grabagun.com/walther-ppx-m1-9mm-16rd-blk-poly-fs.html" title="Product image" class="product-image"><img src="http://grabagun.com/media/catalog/product/cache/1/small_image/163x/9df78eab33525d08d6e5fb8d27136e95/W/a/Walther-PPX-M1-2790025-723364200175.jpg_2.jpg" width="163" height="163" alt="Product image" /></a>
+                <h2 class="product-name"><a href="http://grabagun.com/walther-ppx-m1-9mm-16rd-blk-poly-fs.html" title="Walther PPX M1 Pistol 9mm 16rd Black Fixed Sights">Walther PPX M1 Pistol 9mm 16rd Black Fixed Sights</a></h2>
+                                    <div class="ratings">
+                    <div class="rating-box">
+                <div class="rating" style="width:100%"></div>
+            </div>
+                <span class="amount">5 Review(s)</span>
+    </div>
+                                
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-94998">
+                                            <span class="price">$359.95</span>                                    </span>
+                        
+        </div>
+
+                
+
+		<div class="actions">
+                                            <img class="addtocartSmall" src="http://grabagun.com/skin/frontend/default/GrabAGun//images/button_addtocartsmall.jpg" alt="Add to Cart" onclick="setLocationAjax('http://grabagun.com/checkout/cart/add/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/product/94998/form_key/HglGM0FwwyhXDvWw/', '94998')" />
+		                        <ul class="add-to-links">
+                                                    <li><a href="https://grabagun.com/wishlist/index/add/product/94998/form_key/HglGM0FwwyhXDvWw/" class="link-wishlist">Add to Wishlist</a></li>
+                                                                            <li><span class="separator">|</span> <a href="http://grabagun.com/catalog/product_compare/add/product/94998/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/" class="link-compare">Add to Compare</a></li>
+                                            </ul>
+                </div>
+            </li>
+                </ul>
+                        	        <ul class="products-grid">
+                    <li class="item first">
+                <a href="http://grabagun.com/weatherby-inc-vbe257wr4o-vngrd2-257wby-wtlbonz.html" title="Product image" class="product-image"><img src="http://grabagun.com/media/catalog/product/cache/1/small_image/163x/9df78eab33525d08d6e5fb8d27136e95/W/e/Weatherby-Vanguard-S2-Whitetail-Bonz-VBE257WR4O-747115422227.jpg.jpg" width="163" height="163" alt="Product image" /></a>
+                <h2 class="product-name"><a href="http://grabagun.com/weatherby-inc-vbe257wr4o-vngrd2-257wby-wtlbonz.html" title="Weatherby VBE257WR4O VNGRD2 257WBY WTLBONZ">Weatherby VBE257WR4O VNGRD2 257WBY WTLBONZ</a></h2>
+                                
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-116411">
+                                            <span class="price">$561.60</span>                                    </span>
+                        
+        </div>
+
+                
+
+		<div class="actions">
+                                            <img class="addtocartSmall" src="http://grabagun.com/skin/frontend/default/GrabAGun//images/button_addtocartsmall.jpg" alt="Add to Cart" onclick="setLocationAjax('http://grabagun.com/checkout/cart/add/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/product/116411/form_key/HglGM0FwwyhXDvWw/', '116411')" />
+		                        <ul class="add-to-links">
+                                                    <li><a href="https://grabagun.com/wishlist/index/add/product/116411/form_key/HglGM0FwwyhXDvWw/" class="link-wishlist">Add to Wishlist</a></li>
+                                                                            <li><span class="separator">|</span> <a href="http://grabagun.com/catalog/product_compare/add/product/116411/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/" class="link-compare">Add to Compare</a></li>
+                                            </ul>
+                </div>
+            </li>
+                        	            <li class="item">
+                <a href="http://grabagun.com/windham-weaponry-carbon-fiber-223-16-flat-top.html" title="Product image" class="product-image"><img src="http://grabagun.com/media/catalog/product/cache/1/small_image/163x/9df78eab33525d08d6e5fb8d27136e95/W/i/Windham-Weaponry-R16M4FTT-C1-R16M4FTTCF1-848037010766.jpg_2.jpg" width="163" height="163" alt="Product image" /></a>
+                <h2 class="product-name"><a href="http://grabagun.com/windham-weaponry-carbon-fiber-223-16-flat-top.html" title="Windham Weaponry CARBON FIBER 223 16-inch  FLAT TOP">Windham Weaponry CARBON FIBER 223 16-inch  FLAT TOP</a></h2>
+                                    <div class="ratings">
+                    <div class="rating-box">
+                <div class="rating" style="width:100%"></div>
+            </div>
+                <span class="amount">2 Review(s)</span>
+    </div>
+                                
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-94787">
+                                            <span class="price">$629.17</span>                                    </span>
+                        
+        </div>
+
+                
+
+		<div class="actions">
+                                            <img class="addtocartSmall" src="http://grabagun.com/skin/frontend/default/GrabAGun//images/button_addtocartsmall.jpg" alt="Add to Cart" onclick="setLocationAjax('http://grabagun.com/checkout/cart/add/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/product/94787/form_key/HglGM0FwwyhXDvWw/', '94787')" />
+		                        <ul class="add-to-links">
+                                                    <li><a href="https://grabagun.com/wishlist/index/add/product/94787/form_key/HglGM0FwwyhXDvWw/" class="link-wishlist">Add to Wishlist</a></li>
+                                                                            <li><span class="separator">|</span> <a href="http://grabagun.com/catalog/product_compare/add/product/94787/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/" class="link-compare">Add to Compare</a></li>
+                                            </ul>
+                </div>
+            </li>
+                        	            <li class="item">
+                <a href="http://grabagun.com/american-tactical-imports-inc-fx45-1911-military-5-45acp-8rd.html" title="Product image" class="product-image"><img src="http://grabagun.com/media/catalog/product/cache/1/small_image/163x/9df78eab33525d08d6e5fb8d27136e95/A/m/American-Tactical-Imports-FX45-Military-ATIGFX45MIL-813393012761.jpg_1.jpg" width="163" height="163" alt="Product image" /></a>
+                <h2 class="product-name"><a href="http://grabagun.com/american-tactical-imports-inc-fx45-1911-military-5-45acp-8rd.html" title="American Tactical Imports FX45 1911 Military 5-inch .45ACP 8rd">American Tactical Imports FX45 1911 Military 5-inch .45ACP 8rd</a></h2>
+                                    <div class="ratings">
+                    <div class="rating-box">
+                <div class="rating" style="width:92%"></div>
+            </div>
+                <span class="amount">12 Review(s)</span>
+    </div>
+                                
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-78317">
+                                            <span class="price">$471.18</span>                                    </span>
+                        
+        </div>
+
+                
+
+		<div class="actions">
+                                                                            <p class="availability out-of-stock"><span>Out of stock</span></p>
+                                                                <ul class="add-to-links">
+                                                    <li><a href="https://grabagun.com/wishlist/index/add/product/78317/form_key/HglGM0FwwyhXDvWw/" class="link-wishlist">Add to Wishlist</a></li>
+                                                                            <li><span class="separator">|</span> <a href="http://grabagun.com/catalog/product_compare/add/product/78317/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/" class="link-compare">Add to Compare</a></li>
+                                            </ul>
+                </div>
+            </li>
+                        	            <li class="item last">
+                <a href="http://grabagun.com/arsenal-inc-krink-pstl-556nato-10-5-5rd.html" title="Product image" class="product-image"><img src="http://grabagun.com/media/catalog/product/cache/1/small_image/163x/9df78eab33525d08d6e5fb8d27136e95/A/r/Arsenal-Krink-SLR106-47-400472400160.jpg.jpg" width="163" height="163" alt="Product image" /></a>
+                <h2 class="product-name"><a href="http://grabagun.com/arsenal-inc-krink-pstl-556nato-10-5-5rd.html" title="Arsenal KRINK Pistol 5.56 NATO 10.5-inch 5rd">Arsenal KRINK Pistol 5.56 NATO 10.5-inch 5rd</a></h2>
+                                                                
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-78227">
+                                            <span class="price">$852.95</span>                                    </span>
+                        
+        </div>
+
+                
+
+		<div class="actions">
+                                                                            <p class="availability out-of-stock"><span>Out of stock</span></p>
+                                                                <ul class="add-to-links">
+                                                    <li><a href="https://grabagun.com/wishlist/index/add/product/78227/form_key/HglGM0FwwyhXDvWw/" class="link-wishlist">Add to Wishlist</a></li>
+                                                                            <li><span class="separator">|</span> <a href="http://grabagun.com/catalog/product_compare/add/product/78227/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/" class="link-compare">Add to Compare</a></li>
+                                            </ul>
+                </div>
+            </li>
+                </ul>
+                        	        <ul class="products-grid">
+                    <li class="item first">
+                <a href="http://grabagun.com/beretta-a300-outlander-12-28-max-4-3.html" title="Product image" class="product-image"><img src="http://grabagun.com/media/catalog/product/cache/1/small_image/163x/9df78eab33525d08d6e5fb8d27136e95/B/e/Beretta-A300-Outlander-J30TC18-082442189413.jpg.jpg" width="163" height="163" alt="Product image" /></a>
+                <h2 class="product-name"><a href="http://grabagun.com/beretta-a300-outlander-12-28-max-4-3.html" title="Beretta A300 OUTLANDER CAMO Max-4 12 GA 28 inch">Beretta A300 OUTLANDER CAMO Max-4 12 GA 28 inch</a></h2>
+                                    <div class="ratings">
+                    <div class="rating-box">
+                <div class="rating" style="width:100%"></div>
+            </div>
+                <span class="amount">3 Review(s)</span>
+    </div>
+                                
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-89813">
+                                            <span class="price">$698.58</span>                                    </span>
+                        
+        </div>
+
+                
+
+		<div class="actions">
+                                                                            <p class="availability out-of-stock"><span>Out of stock</span></p>
+                                                                <ul class="add-to-links">
+                                                    <li><a href="https://grabagun.com/wishlist/index/add/product/89813/form_key/HglGM0FwwyhXDvWw/" class="link-wishlist">Add to Wishlist</a></li>
+                                                                            <li><span class="separator">|</span> <a href="http://grabagun.com/catalog/product_compare/add/product/89813/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/" class="link-compare">Add to Compare</a></li>
+                                            </ul>
+                </div>
+            </li>
+                        	            <li class="item">
+                <a href="http://grabagun.com/browning-citori-725-sptg-12-28-3-adj.html" title="Product image" class="product-image"><img src="http://grabagun.com/media/catalog/product/cache/1/small_image/163x/9df78eab33525d08d6e5fb8d27136e95/B/r/Browning-Citori-725-Sporting-Adjustable-0135533011-023614396611.jpg.jpg" width="163" height="163" alt="Product image" /></a>
+                <h2 class="product-name"><a href="http://grabagun.com/browning-citori-725-sptg-12-28-3-adj.html" title="Browning Citori 725 Sporting 12/28 3 inch Adjustable">Browning Citori 725 Sporting 12/28 3 inch Adjustable</a></h2>
+                                
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-55161">
+                                            <span class="price">$2,819.98</span>                                    </span>
+                        
+        </div>
+
+                
+
+		<div class="actions">
+                                                                            <p class="availability out-of-stock"><span>Out of stock</span></p>
+                                                                <ul class="add-to-links">
+                                                    <li><a href="https://grabagun.com/wishlist/index/add/product/55161/form_key/HglGM0FwwyhXDvWw/" class="link-wishlist">Add to Wishlist</a></li>
+                                                                            <li><span class="separator">|</span> <a href="http://grabagun.com/catalog/product_compare/add/product/55161/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/" class="link-compare">Add to Compare</a></li>
+                                            </ul>
+                </div>
+            </li>
+                        	            <li class="item">
+                <a href="http://grabagun.com/bushmaster-firearms-inter-90866-car15-223-16-orc-rd-10.html" title="Product image" class="product-image"><img src="http://grabagun.com/media/catalog/product/cache/1/small_image/163x/9df78eab33525d08d6e5fb8d27136e95/B/u/Bushmaster-90866-604206908667.jpg.jpg" width="163" height="163" alt="Product image" /></a>
+                <h2 class="product-name"><a href="http://grabagun.com/bushmaster-firearms-inter-90866-car15-223-16-orc-rd-10.html" title="Bushmaster 90866 CAR15 223 16 ORC RD 10">Bushmaster 90866 CAR15 223 16 ORC RD 10</a></h2>
+                                    <div class="ratings">
+                    <div class="rating-box">
+                <div class="rating" style="width:85%"></div>
+            </div>
+                <span class="amount">3 Review(s)</span>
+    </div>
+                                
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-98485">
+                                            <span class="price">$634.76</span>                                    </span>
+                        
+        </div>
+
+                
+
+		<div class="actions">
+                                                                            <p class="availability out-of-stock"><span>Out of stock</span></p>
+                                                                <ul class="add-to-links">
+                                                    <li><a href="https://grabagun.com/wishlist/index/add/product/98485/form_key/HglGM0FwwyhXDvWw/" class="link-wishlist">Add to Wishlist</a></li>
+                                                                            <li><span class="separator">|</span> <a href="http://grabagun.com/catalog/product_compare/add/product/98485/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/" class="link-compare">Add to Compare</a></li>
+                                            </ul>
+                </div>
+            </li>
+                        	            <li class="item last">
+                <a href="http://grabagun.com/cci-0310-percussion-cap-11-mag.html" title="Product image" class="product-image"><img src="http://grabagun.com/media/catalog/product/cache/1/small_image/163x/9df78eab33525d08d6e5fb8d27136e95/C/C/CCI-Ammunition-NULL-310-076683003102.jpg.jpg" width="163" height="163" alt="Product image" /></a>
+                <h2 class="product-name"><a href="http://grabagun.com/cci-0310-percussion-cap-11-mag.html" title="CCI Ammunition 0310 Percussion Cap #11 Magazine">CCI Ammunition 0310 Percussion Cap #11 Magazine</a></h2>
+                                
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-87264">
+                                            <span class="price">$0.78</span>                                    </span>
+                        
+        </div>
+
+                
+
+		<div class="actions">
+                                                                            <p class="availability out-of-stock"><span>Out of stock</span></p>
+                                                                <ul class="add-to-links">
+                                                    <li><a href="https://grabagun.com/wishlist/index/add/product/87264/form_key/HglGM0FwwyhXDvWw/" class="link-wishlist">Add to Wishlist</a></li>
+                                                                            <li><span class="separator">|</span> <a href="http://grabagun.com/catalog/product_compare/add/product/87264/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/" class="link-compare">Add to Compare</a></li>
+                                            </ul>
+                </div>
+            </li>
+                </ul>
+                        	        <ul class="products-grid">
+                    <li class="item first">
+                <a href="http://grabagun.com/century-arms-pap-rifle-7-62x39-thmbhl-30-1.html" title="Product image" class="product-image"><img src="http://grabagun.com/media/catalog/product/cache/1/small_image/163x/9df78eab33525d08d6e5fb8d27136e95/C/e/Century-Arms-Yugo-PAP-Rifle-RI2084-N-787450220751.jpg.jpg" width="163" height="163" alt="Product image" /></a>
+                <h2 class="product-name"><a href="http://grabagun.com/century-arms-pap-rifle-7-62x39-thmbhl-30-1.html" title="Century Arms PAP Rifle 7.62X39 THMBHL 30+1">Century Arms PAP Rifle 7.62X39 THMBHL 30+1</a></h2>
+                                                                
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-89627">
+                                            <span class="price">$596.56</span>                                    </span>
+                        
+        </div>
+
+                
+
+		<div class="actions">
+                                                                            <p class="availability out-of-stock"><span>Out of stock</span></p>
+                                                                <ul class="add-to-links">
+                                                    <li><a href="https://grabagun.com/wishlist/index/add/product/89627/form_key/HglGM0FwwyhXDvWw/" class="link-wishlist">Add to Wishlist</a></li>
+                                                                            <li><span class="separator">|</span> <a href="http://grabagun.com/catalog/product_compare/add/product/89627/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/" class="link-compare">Add to Compare</a></li>
+                                            </ul>
+                </div>
+            </li>
+                        	            <li class="item">
+                <a href="http://grabagun.com/century-arms-arms-tp-9-9mm-4-blk-18rd.html" title="Product image" class="product-image"><img src="http://grabagun.com/media/catalog/product/cache/1/small_image/163x/9df78eab33525d08d6e5fb8d27136e95/C/e/Century-Arms-TP-9-HG2846N-787450210653.jpg.jpg" width="163" height="163" alt="Product image" /></a>
+                <h2 class="product-name"><a href="http://grabagun.com/century-arms-arms-tp-9-9mm-4-blk-18rd.html" title="Century Arms TP-9 9mm 4-inch Black 18rd">Century Arms TP-9 9mm 4-inch Black 18rd</a></h2>
+                                    <div class="ratings">
+                    <div class="rating-box">
+                <div class="rating" style="width:60%"></div>
+            </div>
+                <span class="amount">2 Review(s)</span>
+    </div>
+                                
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-90183">
+                                            <span class="price">$345.35</span>                                    </span>
+                        
+        </div>
+
+                
+
+		<div class="actions">
+                                                                            <p class="availability out-of-stock"><span>Out of stock</span></p>
+                                                                <ul class="add-to-links">
+                                                    <li><a href="https://grabagun.com/wishlist/index/add/product/90183/form_key/HglGM0FwwyhXDvWw/" class="link-wishlist">Add to Wishlist</a></li>
+                                                                            <li><span class="separator">|</span> <a href="http://grabagun.com/catalog/product_compare/add/product/90183/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/" class="link-compare">Add to Compare</a></li>
+                                            </ul>
+                </div>
+            </li>
+                        	            <li class="item">
+                <a href="http://grabagun.com/cimarron-firearms-as530-spencer-carbine-20.html" title="Product image" class="product-image"><img src="http://grabagun.com/media/catalog/product/cache/1/small_image/163x/9df78eab33525d08d6e5fb8d27136e95/C/i/Cimarron-Firearms-AS530-814230011381.jpg.jpg" width="163" height="163" alt="Product image" /></a>
+                <h2 class="product-name"><a href="http://grabagun.com/cimarron-firearms-as530-spencer-carbine-20.html" title="Cimarron Firearms AS530 Spencer Carbine 20 inch">Cimarron Firearms AS530 Spencer Carbine 20 inch</a></h2>
+                                    <div class="ratings">
+                    <div class="rating-box">
+                <div class="rating" style="width:100%"></div>
+            </div>
+                <span class="amount">1 Review(s)</span>
+    </div>
+                                
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-81214">
+                                            <span class="price">$1,446.31</span>                                    </span>
+                        
+        </div>
+
+                
+
+		<div class="actions">
+                                                                            <p class="availability out-of-stock"><span>Out of stock</span></p>
+                                                                <ul class="add-to-links">
+                                                    <li><a href="https://grabagun.com/wishlist/index/add/product/81214/form_key/HglGM0FwwyhXDvWw/" class="link-wishlist">Add to Wishlist</a></li>
+                                                                            <li><span class="separator">|</span> <a href="http://grabagun.com/catalog/product_compare/add/product/81214/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/" class="link-compare">Add to Compare</a></li>
+                                            </ul>
+                </div>
+            </li>
+                        	            <li class="item last">
+                <a href="http://grabagun.com/cmmg-22a7ce5-quebec-rifle.html" title="Product image" class="product-image"><img src="http://grabagun.com/media/catalog/product/cache/1/small_image/163x/9df78eab33525d08d6e5fb8d27136e95/C/M/CMMG-22A7CE5-815835011301.jpg.jpg" width="163" height="163" alt="Product image" /></a>
+                <h2 class="product-name"><a href="http://grabagun.com/cmmg-22a7ce5-quebec-rifle.html" title="CMMG AR-15 Rifle .22 LR 16-inch 25 Round Railed Gas Block M4 Handguard Black">CMMG AR-15 Rifle .22 LR 16-inch 25 Round Railed Gas Block M4 Handguard Black</a></h2>
+                                                                
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-88172">
+                                            <span class="price">$687.60</span>                                    </span>
+                        
+        </div>
+
+                
+
+		<div class="actions">
+                                                                            <p class="availability out-of-stock"><span>Out of stock</span></p>
+                                                                <ul class="add-to-links">
+                                                    <li><a href="https://grabagun.com/wishlist/index/add/product/88172/form_key/HglGM0FwwyhXDvWw/" class="link-wishlist">Add to Wishlist</a></li>
+                                                                            <li><span class="separator">|</span> <a href="http://grabagun.com/catalog/product_compare/add/product/88172/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/" class="link-compare">Add to Compare</a></li>
+                                            </ul>
+                </div>
+            </li>
+                </ul>
+                        	        <ul class="products-grid">
+                    <li class="item first">
+                <a href="http://grabagun.com/cobra-ent-ca380-380acp-blue-blk.html" title="Product image" class="product-image"><img src="http://grabagun.com/media/catalog/product/cache/1/small_image/163x/9df78eab33525d08d6e5fb8d27136e95/C/o/Cobra-Firearms-CA380-KFA-30110-832716007055.jpg.jpg" width="163" height="163" alt="Product image" /></a>
+                <h2 class="product-name"><a href="http://grabagun.com/cobra-ent-ca380-380acp-blue-blk.html" title="Cobra Firearms CA380 .380ACP Black/Black">Cobra Firearms CA380 .380ACP Black/Black</a></h2>
+                                    <div class="ratings">
+                    <div class="rating-box">
+                <div class="rating" style="width:65%"></div>
+            </div>
+                <span class="amount">4 Review(s)</span>
+    </div>
+                                
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-16002">
+                                            <span class="price">$112.85</span>                                    </span>
+                        
+        </div>
+
+                
+
+		<div class="actions">
+                                                                            <p class="availability out-of-stock"><span>Out of stock</span></p>
+                                                                <ul class="add-to-links">
+                                                    <li><a href="https://grabagun.com/wishlist/index/add/product/16002/form_key/HglGM0FwwyhXDvWw/" class="link-wishlist">Add to Wishlist</a></li>
+                                                                            <li><span class="separator">|</span> <a href="http://grabagun.com/catalog/product_compare/add/product/16002/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/" class="link-compare">Add to Compare</a></li>
+                                            </ul>
+                </div>
+            </li>
+                        	            <li class="item">
+                <a href="http://grabagun.com/colt-le6920mp-od-ar15-carbine.html" title="Product image" class="product-image"><img src="http://grabagun.com/media/catalog/product/cache/1/small_image/163x/9df78eab33525d08d6e5fb8d27136e95/C/o/Colt-Firearms-M4-Carbine-MOE-LE6920MP-OD-098289019523.jpg.jpg" width="163" height="163" alt="Product image" /></a>
+                <h2 class="product-name"><a href="http://grabagun.com/colt-le6920mp-od-ar15-carbine.html" title="Colt Firearms LE6920MP-OD AR15 Carbine">Colt Firearms LE6920MP-OD AR15 Carbine</a></h2>
+                                    <div class="ratings">
+                    <div class="rating-box">
+                <div class="rating" style="width:95%"></div>
+            </div>
+                <span class="amount">13 Review(s)</span>
+    </div>
+                                
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-79783">
+                                            <span class="price">$1,091.63</span>                                    </span>
+                        
+        </div>
+
+                
+
+		<div class="actions">
+                                                                            <p class="availability out-of-stock"><span>Out of stock</span></p>
+                                                                <ul class="add-to-links">
+                                                    <li><a href="https://grabagun.com/wishlist/index/add/product/79783/form_key/HglGM0FwwyhXDvWw/" class="link-wishlist">Add to Wishlist</a></li>
+                                                                            <li><span class="separator">|</span> <a href="http://grabagun.com/catalog/product_compare/add/product/79783/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/" class="link-compare">Add to Compare</a></li>
+                                            </ul>
+                </div>
+            </li>
+                        	            <li class="item">
+                <a href="http://grabagun.com/colt-mfg-co-inc-le6920mpb-car-5-56-16-1-30rd.html" title="Product image" class="product-image"><img src="http://grabagun.com/media/catalog/product/cache/1/small_image/163x/9df78eab33525d08d6e5fb8d27136e95/C/o/Colt-Firearms-M4-Carbine-MOE-LE6920MP-B-098289019431.jpg.jpg" width="163" height="163" alt="Product image" /></a>
+                <h2 class="product-name"><a href="http://grabagun.com/colt-mfg-co-inc-le6920mpb-car-5-56-16-1-30rd.html" title="Colt Firearms M4 Carbine  Magpul MOE Black 5.56MM 16 inch">Colt Firearms M4 Carbine  Magpul MOE Black 5.56MM 16 inch</a></h2>
+                                    <div class="ratings">
+                    <div class="rating-box">
+                <div class="rating" style="width:99%"></div>
+            </div>
+                <span class="amount">47 Review(s)</span>
+    </div>
+                                
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-53748">
+                                            <span class="price">$869.00</span>                                    </span>
+                        
+        </div>
+
+                
+
+		<div class="actions">
+                                                                            <p class="availability out-of-stock"><span>Out of stock</span></p>
+                                                                <ul class="add-to-links">
+                                                    <li><a href="https://grabagun.com/wishlist/index/add/product/53748/form_key/HglGM0FwwyhXDvWw/" class="link-wishlist">Add to Wishlist</a></li>
+                                                                            <li><span class="separator">|</span> <a href="http://grabagun.com/catalog/product_compare/add/product/53748/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/" class="link-compare">Add to Compare</a></li>
+                                            </ul>
+                </div>
+            </li>
+                        	            <li class="item last">
+                <a href="http://grabagun.com/crosman-air-guns-mckt01-marines-kt01kit-rfl-pstl.html" title="Product image" class="product-image"><img src="http://grabagun.com/media/catalog/product/cache/1/small_image/163x/9df78eab33525d08d6e5fb8d27136e95/C/r/Crosman-MCKT01-028478135475.jpg.jpg" width="163" height="163" alt="Product image" /></a>
+                <h2 class="product-name"><a href="http://grabagun.com/crosman-air-guns-mckt01-marines-kt01kit-rfl-pstl.html" title="Crosman MCKT01 Marines KT01Kit Airsoft Air Gun Rifle">Crosman MCKT01 Marines KT01Kit Airsoft Air Gun Rifle</a></h2>
+                                                                
+
+                
+    <div class="price-box">
+                                                            <span class="regular-price" id="product-price-57985">
+                                            <span class="price">$42.72</span>                                    </span>
+                        
+        </div>
+
+                
+
+		<div class="actions">
+                                                                            <p class="availability out-of-stock"><span>Out of stock</span></p>
+                                                                <ul class="add-to-links">
+                                                    <li><a href="https://grabagun.com/wishlist/index/add/product/57985/form_key/HglGM0FwwyhXDvWw/" class="link-wishlist">Add to Wishlist</a></li>
+                                                                            <li><span class="separator">|</span> <a href="http://grabagun.com/catalog/product_compare/add/product/57985/uenc/aHR0cDovL2dyYWJhZ3VuLmNvbS9zYWxlLWl0ZW1zLmh0bWw_bGltaXQ9MjAmcD0xMA,,/" class="link-compare">Add to Compare</a></li>
+                                            </ul>
+                </div>
+            </li>
+                </ul>
+                        <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd','even','first','last'])</script>
+    
+    <div class="toolbar-bottom">
+        <div class="toolbar">
+    <div class="pager">
+        <p class="amount">
+                            Items 181 to 200 of 222 total                    </p>
+
+        <div class="limiter">
+            <label>Show</label>
+            <select onchange="setLocation(this.value)">
+                            <option value="http://grabagun.com/sale-items.html?limit=12">
+                    12                </option>
+                            <option value="http://grabagun.com/sale-items.html?limit=20" selected="selected">
+                    20                </option>
+                            <option value="http://grabagun.com/sale-items.html?limit=50">
+                    50                </option>
+                            <option value="http://grabagun.com/sale-items.html?limit=100">
+                    100                </option>
+                        </select> per page        </div>
+
+        
+    
+    
+    
+        <div class="pages">
+        <strong>Page:</strong>
+        <ol>
+                    <li>
+                <a class="previous i-previous" href="http://grabagun.com/sale-items.html?limit=20&amp;p=9" title="Previous">
+                                            <img src="http://grabagun.com/skin/frontend/default/default/images/pager_arrow_left.gif" alt="Previous" class="v-middle" />
+                                    </a>
+            </li>
+        
+        
+        
+                                    <li><a href="http://grabagun.com/sale-items.html?limit=20&amp;p=8">8</a></li>
+                                                <li><a href="http://grabagun.com/sale-items.html?limit=20&amp;p=9">9</a></li>
+                                                <li class="current">10</li>
+                                                <li><a href="http://grabagun.com/sale-items.html?limit=20&amp;p=11">11</a></li>
+                                                <li><a href="http://grabagun.com/sale-items.html?limit=20&amp;p=12">12</a></li>
+                    
+
+        
+        
+                    <li>
+                <a class="next i-next" href="http://grabagun.com/sale-items.html?limit=20&amp;p=11" title="Next">
+                                            <img src="http://grabagun.com/skin/frontend/default/default/images/pager_arrow_right.gif" alt="Next" class="v-middle" />
+                                    </a>
+            </li>
+                </ol>
+
+    </div>
+    
+    
+
+    </div>
+
+        <div class="sorter">
+                <div class="view-mode">
+                                    <label>View as:</label>
+                                                <strong title="Grid" class="grid">Grid</strong>
+                                                                <a href="http://grabagun.com/sale-items.html?limit=20&amp;mode=list" title="List" class="list">List</a>
+                                                </div>
+                
+    
+        <div class="sort-by">
+            <label>Sort by:</label>
+                                        <a href="http://grabagun.com/sale-items.html?dir=asc&amp;limit=20&amp;order=position">Position</a>
+                   
+                          
+                         
+            <span class="current">Name</span>
+                   
+                          
+                                        <a href="http://grabagun.com/sale-items.html?dir=asc&amp;limit=20&amp;order=price">Price</a>
+                   
+                          
+                                        <a href="http://grabagun.com/sale-items.html?dir=asc&amp;limit=20&amp;order=caliber">Caliber</a>
+                   
+                          
+                                        <a href="http://grabagun.com/sale-items.html?dir=asc&amp;limit=20&amp;order=manufacturer">Manufacturer</a>
+                   
+                          
+                                        <a href="http://grabagun.com/sale-items.html?dir=desc&amp;limit=20&amp;order=name" title="Set Descending Direction"><img src="http://grabagun.com/skin/frontend/default/default/images/i_asc_arrow.gif" alt="Set Descending Direction" class="v-middle" /></a>
+                    </div>
+    </div>
+    </div>
+    </div>
+</div>
+<div id="map-popup" class="map-popup" style="display:none;">
+    <a href="#" class="map-popup-close" id="map-popup-close">x</a>
+    <div class="map-popup-arrow"></div>
+    <div class="map-popup-heading"><h2 id="map-popup-heading"></h2></div>
+    <div class="map-popup-content" id="map-popup-content">
+        <div class="map-popup-checkout">
+            <form action="" method="POST" id="product_addtocart_form_from_popup">
+                <input type="hidden" name="product" class="product_id" value="" id="map-popup-product-id" />
+                <div class="additional-addtocart-box">
+                                    </div>
+                <button type="button" title="Add to Cart" class="button btn-cart" id="map-popup-button"><span><span>Add to Cart</span></span></button>
+            </form>
+        </div>
+        <div class="map-popup-msrp" id="map-popup-msrp-box"><strong>Price:</strong> <span style="text-decoration:line-through;" id="map-popup-msrp"></span></div>
+        <div class="map-popup-price" id="map-popup-price-box"><strong>Actual Price:</strong> <span id="map-popup-price"></span></div>
+        <script type="text/javascript">
+        //<![CDATA[
+            document.observe("dom:loaded", Catalog.Map.bindProductForm);
+        //]]>
+        </script>
+    </div>
+    <div class="map-popup-text" id="map-popup-text">Our price is lower than the manufacturer's &quot;minimum advertised price.&quot;  As a result, we cannot show you the price in catalog or the product page. <br /><br /> You have no obligation to purchase the product once you know the price. You can simply remove the item from your cart.</div>
+    <div class="map-popup-text" id="map-popup-text-what-this">Our price is lower than the manufacturer's &quot;minimum advertised price.&quot;  As a result, we cannot show you the price in catalog or the product page. <br /><br /> You have no obligation to purchase the product once you know the price. You can simply remove the item from your cart.</div>
+</div>
+                </div>
+                <div class="col-left sidebar"><div class="block block-layered-nav">
+    <div class="block-content">
+                            <p class="block-subtitle">Filter by...</p>
+            <dl id="narrow-by-list">
+                                                                                                    <dt>Manufacturer</dt>
+                    <dd>
+<script type="text/javascript">
+	function MM_jumpMenu(targ,selObj,restore){ //v3.0
+	  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+	  if (restore) selObj.selectedIndex=0;
+	}
+</script>
+
+    <select style="width: 170px;" name="jumpMenu" onchange="MM_jumpMenu('parent',this,0)">
+        <option>--Select--</option>
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2311">
+                Adams Arms (3)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2939">
+                Advanced Armament (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2317">
+                Allen (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2318">
+                American Classic (4)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2320">
+                American Tactical Imports (7)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2324">
+                Armscor (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2325">
+                Arsenal (3)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2337">
+                Beretta (8)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2344">
+                Bond Arms (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3061">
+                Braztech/Rossi (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2350">
+                Browning (3)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2355">
+                Bushmaster (4)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=4030">
+                CCI Ammunition (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2362">
+                Century Arms (3)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3115">
+                Chiappa Firearms (3)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3118">
+                Cimarron Firearms (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2370">
+                CMMG (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3126">
+                Cobra Firearms (6)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3130">
+                Colt Firearms (6)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2377">
+                Comanche (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3138">
+                Core 15 (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2381">
+                Crosman (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2382">
+                CZ (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2385">
+                Dan Wesson (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2393">
+                DPMS (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3195">
+                DRD (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3211">
+                EAA Corp (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3229">
+                EOTech (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3274">
+                FMK Firearms (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3275">
+                FN (5)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3315">
+                Gibbs Rifle Co (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2417">
+                Glock (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3370">
+                Heckler and Koch (3)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3371">
+                Heizer Firearms (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2430">
+                Hi-Point Firearms (4)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3392">
+                Howa (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3428">
+                ISSC Austrian Sporting (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3432">
+                IWI (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2445">
+                Kahr Arms (3)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2457">
+                Laserlyte (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2462">
+                Leupold (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2466">
+                Magnum Research (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3533">
+                Magpul (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2484">
+                Mossberg (9)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2493">
+                Para USA (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3650">
+                Phoenix Arms (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3664">
+                Pro Mag Industries (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2511">
+                Remington (13)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2514">
+                Ruger (25)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3738">
+                Savage (4)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2522">
+                SGM Tactical (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2526">
+                Sig Sauer (17)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3774">
+                SigTac (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3787">
+                Smith and Wesson (12)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3795">
+                SPG (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2538">
+                Springfield (11)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3815">
+                Stag Arms (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2547">
+                Streamlight (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2557">
+                Taurus (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2559">
+                Thompson Center (4)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3892">
+                Tristar (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2565">
+                Troy (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2305">
+                Walther (7)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=2582">
+                Weatherby (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?limit=20&amp;manufacturer=3968">
+                Windham Weaponry (1)
+            </option>
+            
+        	
+    </select>
+    
+</dd>
+                                                                    <dt>Caliber</dt>
+                    <dd>
+<script type="text/javascript">
+	function MM_jumpMenu(targ,selObj,restore){ //v3.0
+	  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+	  if (restore) selObj.selectedIndex=0;
+	}
+</script>
+
+    <select style="width: 170px;" name="jumpMenu" onchange="MM_jumpMenu('parent',this,0)">
+        <option>--Select--</option>
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2645&amp;limit=20">
+                .22 LR (31)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2656&amp;limit=20">
+                .22 Mag (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2668&amp;limit=20">
+                .223 Rem (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2613&amp;limit=20">
+                .243 Win (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2695&amp;limit=20">
+                .25 ACP (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2707&amp;limit=20">
+                .257 WBY (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2708&amp;limit=20">
+                .260 Rem (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2712&amp;limit=20">
+                .270 Win (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2735&amp;limit=20">
+                .30-06 (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2737&amp;limit=20">
+                .30-30 (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2721&amp;limit=20">
+                .300 AAC Blackout (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2743&amp;limit=20">
+                .308 Win (6)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2765&amp;limit=20">
+                .338 Lapua (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2779&amp;limit=20">
+                .357 Mag (3)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2794&amp;limit=20">
+                .38 SPL (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2797&amp;limit=20">
+                .380 ACP (12)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2800&amp;limit=20">
+                .40 SW (8)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2807&amp;limit=20">
+                .410 GA (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2821&amp;limit=20">
+                .45 ACP (29)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2825&amp;limit=20">
+                .45 LC (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2847&amp;limit=20">
+                .50 AE (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2849&amp;limit=20">
+                .50 BMG (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2857&amp;limit=20">
+                12 GA (19)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2859&amp;limit=20">
+                20 GA (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2617&amp;limit=20">
+                5.56 (27)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2863&amp;limit=20">
+                5.7 X 28 (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2876&amp;limit=20">
+                6mm (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2886&amp;limit=20">
+                7.62 X 39 (5)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2897&amp;limit=20">
+                7mm WSM (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?caliber=2906&amp;limit=20">
+                9mm (35)
+            </option>
+            
+        	
+    </select>
+    
+</dd>
+                                                                    <dt>Price</dt>
+                    <dd>
+    
+    <ol>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?limit=20&amp;price=-1000"><span class="price">$0.00</span> - <span class="price">$999.99</span></a>
+                        (196)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?limit=20&amp;price=1000-2000"><span class="price">$1,000.00</span> - <span class="price">$1,999.99</span></a>
+                        (22)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?limit=20&amp;price=2000-"><span class="price">$2,000.00</span> and above</a>
+                        (4)
+        </li>
+    </ol>
+
+</dd>
+                                                                    <dt>Accessories</dt>
+                    <dd>
+    
+    <ol>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?accessories=125&amp;limit=20">1 Mag</a>
+                        (24)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?accessories=144&amp;limit=20">2 Mags</a>
+                        (22)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?accessories=145&amp;limit=20">2 Mags, Blt Hlstr, Dbl Mag Pch, Mag Ldr, Lock</a>
+                        (1)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?accessories=146&amp;limit=20">2 Mags, Blt Hlstr, Dbl Mag Pouch</a>
+                        (1)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?accessories=149&amp;limit=20">2 Mags, Pdl Hlstr, Dbl Mag Pch, Mag Ldr, Lock</a>
+                        (4)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?accessories=343&amp;limit=20">Nylon Pouch</a>
+                        (1)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?accessories=394&amp;limit=20">Scope Rail</a>
+                        (2)
+        </li>
+    </ol>
+
+</dd>
+                                                                    <dt>Action Type</dt>
+                    <dd>
+    
+    <ol>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?action_type=531&amp;limit=20">Bolt</a>
+                        (10)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?action_type=532&amp;limit=20">Derringer</a>
+                        (4)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?action_type=533&amp;limit=20">Double Action</a>
+                        (5)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?action_type=534&amp;limit=20">Lever</a>
+                        (2)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?action_type=535&amp;limit=20">Over/Under</a>
+                        (1)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?action_type=536&amp;limit=20">Pump</a>
+                        (6)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?action_type=537&amp;limit=20">Revolver</a>
+                        (4)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?action_type=538&amp;limit=20">Semi-automatic</a>
+                        (12)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?action_type=540&amp;limit=20">Single Shot</a>
+                        (1)
+        </li>
+    </ol>
+
+</dd>
+                                                                    <dt>Barrel Length</dt>
+                    <dd>
+    
+    <ol>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?barrel_length=559&amp;limit=20">20</a>
+                        (6)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?barrel_length=568&amp;limit=20">21</a>
+                        (1)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?barrel_length=588&amp;limit=20">26</a>
+                        (2)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?barrel_length=604&amp;limit=20">3.2</a>
+                        (1)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?barrel_length=613&amp;limit=20">3.5"</a>
+                        (2)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?barrel_length=625&amp;limit=20">3.9</a>
+                        (2)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?barrel_length=660&amp;limit=20">4.6</a>
+                        (1)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?barrel_length=670&amp;limit=20">5</a>
+                        (16)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?barrel_length=671&amp;limit=20">5"</a>
+                        (1)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?barrel_length=677&amp;limit=20">5.3"</a>
+                        (1)
+        </li>
+    </ol>
+
+</dd>
+                                                                    <dt>Capacity</dt>
+                    <dd>
+    
+    <ol>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?capacity=907&amp;limit=20">14Rd</a>
+                        (2)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?capacity=910&amp;limit=20">16Rd</a>
+                        (1)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?capacity=912&amp;limit=20">18Rd</a>
+                        (1)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?capacity=913&amp;limit=20">19Rd</a>
+                        (1)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?capacity=924&amp;limit=20">30Rd</a>
+                        (5)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?capacity=942&amp;limit=20">6</a>
+                        (8)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?capacity=945&amp;limit=20">6Rd</a>
+                        (1)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?capacity=948&amp;limit=20">7Rd</a>
+                        (2)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?capacity=953&amp;limit=20">8Rd</a>
+                        (1)
+        </li>
+    </ol>
+
+</dd>
+                                                                    <dt>Finish Per Color</dt>
+                    <dd>
+<script type="text/javascript">
+	function MM_jumpMenu(targ,selObj,restore){ //v3.0
+	  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+	  if (restore) selObj.selectedIndex=0;
+	}
+</script>
+
+    <select style="width: 170px;" name="jumpMenu" onchange="MM_jumpMenu('parent',this,0)">
+        <option>--Select--</option>
+            
+            <option value="http://grabagun.com/sale-items.html?finish_per_color=996&amp;limit=20">
+                Black (34)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?finish_per_color=1036&amp;limit=20">
+                Blue (8)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?finish_per_color=1061&amp;limit=20">
+                Chrome (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?finish_per_color=1080&amp;limit=20">
+                Duo Tone (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?finish_per_color=1085&amp;limit=20">
+                Flat Dark Earth (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?finish_per_color=1122&amp;limit=20">
+                Matte (3)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?finish_per_color=1123&amp;limit=20">
+                Matte Black (3)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?finish_per_color=1142&amp;limit=20">
+                Nickel (2)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?finish_per_color=1151&amp;limit=20">
+                OD Green (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?finish_per_color=1158&amp;limit=20">
+                Parkerized (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?finish_per_color=1192&amp;limit=20">
+                Satin (1)
+            </option>
+            
+            
+            <option value="http://grabagun.com/sale-items.html?finish_per_color=1206&amp;limit=20">
+                Stn Blk (1)
+            </option>
+            
+        	
+    </select>
+    
+</dd>
+                                                                    <dt>Firing Casing</dt>
+                    <dd>
+    
+    <ol>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?firing_casing=1238&amp;limit=20">Fired Case</a>
+                        (17)
+        </li>
+    </ol>
+
+</dd>
+                                                                    <dt>Frame Per Material</dt>
+                    <dd>
+    
+    <ol>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?frame_per_material=1242&amp;limit=20">Alloy</a>
+                        (20)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?frame_per_material=1243&amp;limit=20">Aluminum</a>
+                        (1)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?frame_per_material=1300&amp;limit=20">Polymer</a>
+                        (20)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?frame_per_material=1311&amp;limit=20">Scandium</a>
+                        (2)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?frame_per_material=1313&amp;limit=20">Soft</a>
+                        (1)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?frame_per_material=1314&amp;limit=20">Stainless</a>
+                        (2)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?frame_per_material=1316&amp;limit=20">Steel</a>
+                        (15)
+        </li>
+    </ol>
+
+</dd>
+                                                                    <dt>Hand</dt>
+                    <dd>
+    
+    <ol>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?hand=1329&amp;limit=20">Ambidextrous</a>
+                        (1)
+        </li>
+            <li>
+                        <a href="http://grabagun.com/sale-items.html?hand=1331&amp;limit=20">Right Hand</a>
+                        (13)
+        </li>
+    </ol>
+
+</dd>
+                                                                                                            </dl>
+            <script type="text/javascript">decorateDataList('narrow-by-list')</script>
+            </div>
+</div>
+
+					<div id="rightReportsProductViewed" class="placeholder"                             
+					rel="right.reports.product.viewed"></div>
+				<div class="block block-list block-compare">
+    <div class="block-title">
+        <strong><span>Compare Products                    </span></strong>
+    </div>
+    <div class="block-content">
+            <p class="empty">You have no items to compare.</p>
+        </div>
+</div>
+
+
+					<div id="catalogCompareSidebar" class="placeholder"                             
+					rel="catalog.compare.sidebar"></div>
+				</div>
+                <!-- STARTFooterContainer -->
+            </div>
+        </div>
+        <div class="bottom-tab-shape">&nbsp;</div>
+<div class="footer-container">
+    <div class="footer">
+    <div class="payment"><img src="http://grabagun.com/skin/frontend/default/GrabAGun/images/methods.png"></div>
+    <div class="social"><p><a href="http://www.facebook.com/pages/GrabAGuncom/105647922853032" target="_blank"><img class="ss-icon" src="http://grabagun.com/skin/frontend/default/GrabAGun/images/facebook.png" alt="" /></a> <a href="http://www.twitter.com/grabagun" target="_blank"><img class="ss-icon" src="http://grabagun.com/skin/frontend/default/GrabAGun/images/twitter.png" alt="" /></a> <a href="https://www.youtube.com/user/GrabAGunCom" target="_blank"><img class="ss-icon" src="http://grabagun.com/skin/frontend/default/GrabAGun/images/youtube.png" alt="" /></a> <a href="https://plus.google.com/112298937999380353006" target="_blank"><img class="ss-icon" src="http://grabagun.com/skin/frontend/default/GrabAGun/images/googleplus.png" alt="" /></a></p></div>
+    	<div class="footer-columns">
+        	<ul>
+<li><a href="/ar.html">ARs</a></li>
+<li><a href="/rifles.html">Rifles</a></li>
+<li><a href="/shotguns-1.html">Shotguns</a></li>
+<li><a href="/handguns.html">Handguns</a></li>
+<li><a href="/scopes-optics.html">Scopes &amp; Optics</a></li>
+<li><a href="/accessories.html">Accessories</a></li>
+<li><a href="/knives.html">Knives</a></li>
+<li><a href="/safes.html">Safes</a></li>
+<li><a href="/beretta-guns">Beretta Guns</a></li>
+<li><a href="/rebates">Rebates</a></li>
+<li><a href="/ffl-locator.html">FFL Locator</a></li>
+</ul>        </div>
+        <div class="footer-columns">
+        	<ul>
+<li><a href="/about-us">About Us</a></li>
+<li><a href="/contacts">Contact Us</a></li>
+<li><a href="/ordering-guide">Ordering</a></li>
+<li><a href="/customer-service">Shipping &amp; Returns</a></li>
+<li><a href="/customer-service">Privacy Policy</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/beretta-guns-blog/">Beretta Guns Blog</a></li>
+<li><a href="/layaway/">Gun Financing &amp; Layaway</a></li>
+<li><a href="/chl/">CHL Classes</a></li>
+<li><a href="/giveaway/">Giveaway</a></li>
+<li><a href="/jobs/">Jobs</a></li>
+</ul>        </div>
+        <div class="footer-columns">
+        	<p><strong>Grabagun.com</strong><br />200 E. Beltline Rd<br/>Suite 403<br/>Coppell, TX 75019</p>
+<p><a title="Contact Us" href="/contacts">Contact Customer Service</a><br>
+  (972) 552-7246 <br/>
+  FAX: (972) 304-6214</p>
+<p>We are available:<br />
+  <strong>Mon - Fri<br/> 9:30AM-5:00PM CST</strong></p>
+        </div>
+    <div class="footer-signup"><p><span style="font-size:2em">(972) 552-7246</span></p><div class="block block-subscribe">
+    <div class="newsletter-prompt">
+        <img src="http://grabagun.com/skin/frontend/default/GrabAGun/images/newsletter-red-striped-bar.png" alt="Join the GrabAGun Freedom Deam"/> Join the GrabAGun Freedom Team
+    </div>
+    <form action="https://grabagun.com/newsletter/subscriber/new/" method="post" id="newsletter-validate-detail" onsubmit="listTrakFooter();">
+        <div class="block-content-newsletter">
+            <div class="input-box">
+                <input name="email" type="text" class="input-text required-entry validate-email" id="newsletter" title="Sign up for our newsletter" placeholder="email" />
+            </div>
+            <div class="actions">
+                <button type="submit" title="subscribe" class="button"><span><span>subscribe</span></span></button>
+            </div>
+        </div>
+    </form>
+
+
+    <script type="text/javascript">
+        //<![CDATA[
+        var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
+        //]]>
+    </script>
+
+
+    <script type="text/javascript">
+        //<![CDATA[
+        function listTrakFooter() {
+            var userFirstName = 'Freedom Team';
+            var userLastName = 'Signup';
+
+            // quick fix: there are 2 elements on this page that have the id: newsletter
+            var userEmail = $$('#newsletter')[0].value ? $$('#newsletter')[0].value : $$('#newsletter')[1].value;
+
+            _ltk.Subscriber.List = "Footer Signup";
+            _ltk.Subscriber.Email = userEmail;
+            _ltk.Subscriber.Profile.Add("CheckBox.Source.Footer Signup", "on");
+            _ltk.Subscriber.Submit();
+
+            document.getElementById('newsletter-validate-detail').submit();
+        }
+        //]]>
+    </script>
+</div>
+</div>
+    </div>
+    <script type="text/javascript">
+
+        document.observe('dom:loaded', function() {
+            var leftMargin = ($$(".top-cart")[0].getDimensions().width + 10) + "px";
+            if( $$("#topLinks").length ) {
+                $$("#topLinks")[0].setStyle({"right":leftMargin});
+            }
+            if( $$("#topLinks-home").length ) {
+                $$("#topLinks-home")[0].setStyle({"right":leftMargin});
+            }
+        });
+
+    </script>
+
+    <script>
+    function setLocationAjax(url, productId, secure){
+        jQuery('body').css('cursor', 'progress');
+        jQuery('.addtocartSmall').css('cursor', 'progress');
+        var data = 'product='+productId+'&related_product=&qty=1';
+        data += '&isAjax=1';
+        url = "http://grabagun.com/popcart/checkout_ajaxcart/ajax/"
+        if (secure){
+           url = "https://grabagun.com/popcart/checkout_ajaxcart/ajax/"
+        }
+        try {
+            jQuery.ajax( {
+                url : url,
+                dataType : 'json',
+                type : 'post',
+                data: data,
+                success: function(data) {
+                    updatePopcartAjax(data);
+                    jQuery('.addtocartSmall').css('cursor', 'initial');
+                },
+                error: function(data){
+                    console.log("Popcart ERROR: ");
+                    console.log(data);
+                }
+            });
+        } catch (e) {
+        }
+    }
+    var updateAjaxForm = new VarienForm('popcart_update_form');
+    updateAjaxForm.submit = function(button){
+        jQuery('body').css('cursor', 'progress');
+        jQuery('.popButton.btn-update').css('cursor', 'progress');
+        var data = jQuery('#popcart_update_form').serialize();
+        data += '&isAjax=1';
+        url = "http://grabagun.com/popcart/checkout_ajaxcart/update/"
+        try {
+            jQuery.ajax( {
+                cache: false,
+                url : url,
+                dataType : 'json',
+                type : 'post',
+                data: data,
+                success: function(data) {
+                    updatePopcartAjax(data);
+                    jQuery('.popButton.btn-update').css('cursor', 'initial');
+                },
+                error: function(data){
+                    console.log("Popcart ERROR: ");
+                    console.log(data);
+                }
+            });
+        } catch (e) {
+        }
+    }
+
+    function deleteAjax(productId){
+        jQuery('body').css('cursor', 'progress');
+        jQuery('.item_remove.btn-remove').css('cursor', 'progress');
+        var data = 'product='+productId+'&related_product=&qty=1';
+        data += '&isAjax=1';
+        url = "http://grabagun.com/popcart/checkout_ajaxcart/delete/"
+        try {
+            jQuery.ajax( {
+                url : url,
+                dataType : 'json',
+                type : 'post',
+                data: data,
+                success: function(data) {
+                    updatePopcartAjax(data);
+                    jQuery('.item_remove.btn-remove').css('cursor', 'initial');
+                },
+                error: function(data){
+                    console.log("Popcart ERROR: ");
+                    console.log(data);
+                }
+            });
+        } catch (e) {
+        }
+    }
+
+
+    function updatePopcartAjax(data){
+        jQuery('body').css('cursor', 'progress');
+        jQuery('.add-to-cart .right-wrapper').find('font').css('cursor', 'progress');
+        var scrubbedPopupHtml = jQuery(data.popup_html);
+        var scrubbedChildren = scrubbedPopupHtml.find(".popCart").children();
+        var popcartContent = '';
+        jQuery(scrubbedChildren).each(function(){
+            popcartContent += jQuery(this).html();
+        });
+        jQuery('.popCart').html(popcartContent);
+
+        //Check for Error message and Display in popcart
+        if (data.error_message){
+            jQuery('.warning-message').html(data.error_message);
+            jQuery('.added-message').css('display','none');
+        }
+
+        //change header to show proper cart quantity
+        var pluralize = '';
+        var cartSummary = '';
+        if (data.cart_count == 'Empty'){
+            jQuery('#topLinks').css('right', 153);
+            jQuery('#topLinks-home').css('right', 153);
+            cartSummary = data.cart_count;
+        }
+        else{
+            jQuery('#topLinks').css('right', 210);
+            jQuery('#topLinks-home').css('right', 210);
+            if (data.cart_count > 1){
+                pluralize = "s";
+            }
+            cartSummary = data.cart_count+' item'+pluralize+', '+data.cart_subtotal;
+        }
+        jQuery('.top-cart .summary').html(cartSummary);
+
+        showCart();
+        jQuery('body').css('cursor', 'initial');
+        jQuery('.add-to-cart .right-wrapper').find('font').css('cursor', 'initial');
+        allowQtyButtonFunctionality();
+    }
+
+    allowQtyButtonFunctionality();
+    function allowQtyButtonFunctionality(){
+      jQuery(".popcart-qty .form-btn").unbind("click").click( function() {
+        var button = jQuery(this);
+        var oldValue = button.parent().parent().find("input.qty").val();
+        if (button.text() == "+") {
+          var newVal = parseFloat(oldValue) + 1;
+        } else {
+         // Don't allow decrementing below zero
+          if (oldValue > 0) {
+            var newVal = parseFloat(oldValue) - 1;
+          } else {
+            newVal = 0;
+          }
+        }
+        button.parent().parent().find("input").val(newVal);
+      });
+    }
+</script>
+
+</div>
+        <!-- BEGIN GOOGLE ANALYTICS CODEs -->
+<script type="text/javascript">
+//<![CDATA[
+    var _gaq = _gaq || [];
+    
+_gaq.push(['_setAccount', 'UA-21148177-1']);
+_gaq.push(['_trackPageview']);
+    
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+//]]>
+</script>
+<!-- END GOOGLE ANALYTICS CODE -->
+	<script type="text/javascript" src="http://grabagun-ac.celebros.com/AutoComplete/Scripts/CelebrosAutoCompleteV2.js"></script>
+	<script type="text/javascript">
+	//<![CDATA[
+		function InsertElementAfterEnd(a,o){document.body.appendChild(o);}
+		CelebrosAutoComplete("GrabaGun", "search",  onSelect, "grabagun-ac.celebros.com", "grabagun-ac.celebros.com");
+		function onSelect(aParameter)
+		{ 
+			if ((aParameter["SelectedURL"]!="") &&(aParameter["IsAutoComplete"]))
+			{	
+				var sCmp = (aParameter["SelectedURL"].indexOf("?") == -1) ? "?" : "&";
+				window.location = aParameter["SelectedURL"] + sCmp + "cmp=cel" + "&trigger=ac";
+			}
+			else
+			{ 
+                  var targetLocation = "https://grabagun.com/salesperson/result/?q="+encodeURIComponent(aParameter["SelectedQuery"]);
+                  if (aParameter["IsAutoComplete"].toString().toLowerCase() == "true") 
+	                  targetLocation += "&Trigger=ac";
+                  window.location = targetLocation;
+			}
+		}
+		
+		var searchForm = new Varien.searchForm('search_mini_form', 'search', 'Search entire store here...');
+		
+	//]]>
+	</script>					
+<script type="text/javascript">
+arrEcjs = [];
+function _ecjs(ecid,email) { new Ajax.Request("http://grabagun.com/remarketing/email/", {parameters:{cid: ecid, email: email}}); }
+function ecjsInit() {for(var ecjsi = 0; ecjsi < arrEcjs.length; ecjsi++) {if($(arrEcjs[ecjsi].id)) {$(arrEcjs[ecjsi].id).stopObserving("change", arrEcjs[ecjsi].fn);$(arrEcjs[ecjsi].id).observe("change", arrEcjs[ecjsi].fn);}}}
+arrEcjs.push({id:"billing:email", fn: function() { _ecjs(1, $(this).value);}});
+arrEcjs.push({id:"newsletter", fn: function() { _ecjs(3, $(this).value);}});
+arrEcjs.push({id:"ltkmodal-email", fn: function() { _ecjs(4, $(this).value);}});
+document.observe("dom:loaded", function() { ecjsInit(); 
+Ajax.Responders.register({onComplete: function() {ecjsInit();}});});
+</script><script type="text/javascript">var biJsHost = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cscript src='" + biJsHost + "s1.listrakbi.com/scripts/script.js?m=wKKRApkbaWWZ&v=1' type='text/javascript'%3E%3C/script%3E"));</script><script type="text/javascript">var _mlm = setInterval(function() { if(!window.jQuery) { return; }clearInterval(_mlm);jQuery(document).bind("ltkmodal.show", function() { if(typeof ecjsInit === "function") { ecjsInit(); } }); }, 100);</script>    </div>
+</div>
+<!-- ENDFooterContainer -->
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-2.newrelic.com","licenseKey":"ab261c50f2","applicationID":"3255144","transactionName":"ZlBUZEECD0tWVUAPXF8ad1NHCg5WGFVVElJdWlEfUAIVXVBZRh8cR1xTRw==","queueTime":0,"applicationTime":802,"atts":"ShdXEgkYHEU=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-476.min.js"}</script></body>
+</html>
