@@ -1,12 +1,16 @@
 # -*- coding: utf-8 -*-
 import locale
 import mmh3
-from scrapy import Selector
 from scrapy.contrib.spiders import CrawlSpider, Rule
 from scrapy.contrib.linkextractors import LinkExtractor
+from scrapy.selector import Selector
 from urltools import normalize
 from stalker.items import ProductItem
 from django.utils import timezone
+
+import logging
+logging.basicConfig()
+logger = logging.getLogger(__name__)
 
 locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 
@@ -19,33 +23,40 @@ class GrabagunSpider(CrawlSpider):
 
     rules = (
         Rule(LinkExtractor(allow=(r"http://grabagun.com/(firearms|sale-items|accessories|magazines|scopes-optics|holsters|tactical-gear|gun-parts-for-sale)",),
-                           restrict_xpaths='//div[@class="nav-container"]//a[span]')),
-        Rule(LinkExtractor(restrict_xpaths='//a[@class="next i-next"]')),
-        Rule(LinkExtractor(allow=(r".*html",), restrict_xpaths='//h2[@class="product-name"]/a'), callback='parse_item')
+                           restrict_xpaths='//div[@class="nav-container"]//a[span]'), callback='parse_item', follow=True),
+        Rule(LinkExtractor(restrict_xpaths='//a[@class="next i-next"]'), callback='parse_item', follow=True),
     )
 
-    def parse_item(self, response):
-        item = ProductItem()
-        item['url'] = normalize(response.url)
-        item['pid'] = mmh3.hash(item['url'])
-        sel = Selector(response)
-        item['img'] = sel.xpath('//meta[@property="og:image"]/@content').extract()[0]
-        in_stock = sel.xpath('//p[@class="availability in-stock"]/span/text()').extract()
-        if "In stock" in in_stock:
-            item['oos'] = False
-        else:
-            item['oos'] = True
 
-        has_sale = sel.xpath('//div[@class="price-block"]/div[starts-with(@class,"price-box")]//a/text()').re("[Cc]lick for [pP]rice")
-        if len(has_sale) > 0:
-            sale_price = sel.xpath('//div[@class="price-block"]/div[starts-with(@class,"price-box")]//script/text()').re(r"\$((\d+,)*\d+\.\d+)")
-            item['price'] = locale.atof(sale_price[0])
+    def parse_item(self, response):
+        for sel in response.xpath('//ul[@class="products-grid"]/li[starts-with(@class, "item")]'):
+            yield self._parse_single_item(sel)
+
+
+    def _parse_single_item(self, sel):
+        item = ProductItem()
+
+        item['url'] = normalize(sel.xpath('a[@title="Product image"]/@href').extract()[0])
+        item['pid'] = mmh3.hash(item['url'])
+        item['img'] = sel.xpath('a/img[@alt="Product image"]/@src').extract()[0]
+        oos = sel.xpath('.//p[@class="availability out-of-stock"]/span/text()').extract()
+        if "Out of stock" in oos:
+            item['oos'] = True
         else:
-            regular_price = sel.xpath('//div[@class="price-block"]/div[starts-with(@class,"price-box")]/span/span[@class="price"]/text()').re(r"((\d+,)*\d+\.\d+)")
+            item['oos'] = False
+
+        has_sale = sel.xpath('.//div[starts-with(@class,"price-box")]//a/text()').re("[Cc]lick for [pP]rice")
+        if len(has_sale) > 0:
+            sale_price = sel.xpath('.//div[starts-with(@class,"price-box")]//script/text()').re(r"\$((\d+,)*\d+\.\d+)")
+            item['price'] = locale.atof(sale_price[0])
+            print item['price']
+        else:
+            regular_price = sel.xpath('.//div[starts-with(@class,"price-box")]/span/span[@class="price"]/text()').re(r"((\d+,)*\d+\.\d+)")
             item['price'] = locale.atof(regular_price[0])
 
-        item['headline'] = sel.xpath('//meta[@property="og:title"]/@content').extract()[0]
-        item['desc'] = sel.xpath('//meta[@name="description"]/@content').extract()[0]
+        item['headline'] = sel.xpath('.//h2[@class="product-name"]/a/text()').extract()[0]
+        item['desc'] = "N/A"
         item['vendor'] = self.name
         item['last_modified'] = timezone.now()
+
         return item

@@ -1,3 +1,4 @@
+import mmh3
 import unittest
 from stalker.spiders.grabagun import GrabagunSpider
 from responses import fake_response_from_file
@@ -8,37 +9,29 @@ class GrabagunSpiderTestCase(unittest.TestCase):
         self.spider = GrabagunSpider()
 
     def test_parse_item_normal(self):
-        fake_response = fake_response_from_file(file_name="grabagun_product.html", url="http://grabagun.com/aac-aac-1911-enhanced.html")
-        item = self.spider.parse_item(fake_response)
-        self.assertEquals(item['headline'], "Advanced Armament Corp 1911 - Enhanced 96338 Online Gun Store".encode('utf-8'))
-        self.assertEquals(item['img'], "http://grabagun.com/media/catalog/product/cache/1/small_image/250x250/9df78eab33525d08d6e5fb8d27136e95/A/d/Advanced-Armament-AAC-1911-Enhanced-96338-885293963382.jpg.jpg")
-        self.assertEquals(item['desc'], "AAC 1911 - Enhanced .45 ACP 5 Inch Threaded Barrel AAC Engraving Custom VZ Grips with AAC Logo Black Finish 8 Round")
-        self.assertAlmostEqual(item['price'], 1025.24)
-        self.assertFalse(item['oos'])
+        fake_response = fake_response_from_file(file_name="grabagun_list.html")
+        items = []
+        for item in self.spider.parse_item(fake_response):
+            items.append(item)
 
-    def test_parse_item_multiple_price(self):
-        fake_response = fake_response_from_file(file_name="grabagun_multiple_price.html", url="http://grabagun.com/amer-clsc-amigo-45acp-3-5-7rd-mbl.html")
-        item = self.spider.parse_item(fake_response)
-        self.assertAlmostEqual(item['price'], 512.96)
-        self.assertFalse(item['oos'])
+        self.assertEquals(len(items), 20)
 
-    def test_parse_item_oos(self):
-        fake_response = fake_response_from_file(file_name="grabagun_oos.html", url="http://grabagun.com/eotech-512-tactical-std-aa-bttry.html")
-        item = self.spider.parse_item(fake_response)
-        self.assertTrue(item['oos'])
-        self.assertAlmostEqual(item['price'], 429.00)
+        p0 = items[0]
+        self.assertAlmostEqual(p0['price'], 799.00)
+        self.assertEquals(p0['headline'], u'Adams Arms Arms UA-16-M-TEVO-556 Upper 5.56 16-inch MID T-EVO')
+        self.assertFalse(p0['oos'])
+        self.assertEquals(p0['url'], u'http://grabagun.com/ada-upper-tac-evo-mid-16.html')
 
-    def test_parse_item_sale(self):
-        fake_response = fake_response_from_file(file_name="grabagun_click_for_price.html", url="http://grabagun.com/beretta-nano-9mm-3-07-6rd-blk-3dot.html")
-        item = self.spider.parse_item(fake_response)
-        self.assertFalse(item['oos'])
-        self.assertAlmostEqual(item['price'], 372.73)
+        p7 = items[7]
+        self.assertAlmostEqual(p7['price'], 599.00)
+        self.assertEquals(p7['headline'], u'American Classic MAC 1911 BOBCUT .45ACP 8+1 Blue')
+        self.assertEquals(p7['url'], u'http://grabagun.com/bersa-m19bc45b-1911-bobcat-pistol.html')
+        self.assertFalse(p7['oos'])
 
-    def test_parse_item_price(self):
-        fake_response = fake_response_from_file(file_name="grabagun_price_parse.html", url="http://grabagun.com/rug-mkiii-22-45-22pst-5-5ss-as.html")
-        item = self.spider.parse_item(fake_response)
-        self.assertTrue(item['oos'])
-        self.assertAlmostEqual(item['price'], 300.77)
+        # click for price
+        p18 = items[18]
+        self.assertAlmostEqual(p18['price'], 551.91)
+
 
 if __name__ == '__main__':
     unittest.main()
