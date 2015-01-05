@@ -54,7 +54,6 @@ class GrabagunSpider(CrawlSpider):
             item['price'] = locale.atof(regular_price[0])
 
         item['headline'] = sel.xpath('.//h2[@class="product-name"]/a/text()').extract()[0]
-        item['desc'] = "N/A"
         item['vendor'] = self.name
         item['last_modified'] = timezone.now()
 
