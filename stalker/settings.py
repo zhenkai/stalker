@@ -10,6 +10,8 @@
 from scrapy import log
 import sys
 import os
+import re
+import datetime
 
 BOT_NAME = 'stalker'
 
@@ -23,17 +25,18 @@ CONCURRENT_REQUESTS_PER_DOMAIN = 32
 USER_AGENT = 'stalker (+http://www.stalker.com)'
 
 LOG_LEVEL = log.INFO
-LOG_FILE = "/usr/local/var/log/stalker.log"
+LOG_FILE = re.sub(r'[ :\.]', '_', "/usr/local/var/log/stalker_%s.log" % datetime.datetime.now())
 
 ITEM_PIPELINES = {
     'stalker.pipelines.StalkerPipeline': 1000
 }
 
 # Setting up django's project full path.
-sys.path.insert(0, '/Users/zhenkai/Develop/site/xgunicorn-site/xgunicorn')
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DJANGO_DIR = os.path.dirname(BASE_DIR)
+sys.path.insert(0, DJANGO_DIR)
 
 # Setting up django's settings module name.
-# This module is located at /home/rolando/projects/myweb/myweb/settings.py.
 os.environ['DJANGO_SETTINGS_MODULE'] = 'xgunicorn.settings'
 
 # this is required or else it would say model not ready etc.
